@@ -10,10 +10,9 @@
 
 ### 1. 안드로이드 📱
 
-  - Activity / Context
   
   <details>
-    <summary>접기/펼치기 버튼</summary>
+    <summary>  - Activity / Context </summary>
       <div markdown="1">
 
         |제목|내용|
