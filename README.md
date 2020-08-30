@@ -35,30 +35,30 @@
       이 메서드는 savedInstanceState 매개변수를 수신하는데, 이는 활동의 이전 저장 상태가 포함된 Bundle 객체다.<br>
       이번에 처음 생성된 활동인 경우 Bundle 객체의 값은 null이다.<br><br>
 
-      ```java
+        ```java
 
-      String str;
+        String str;
 
-      @Override
-      public void onCreate(Bundle savedInstanceState) {
-          super.onCreate(savedInstanceState);
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
 
-          // 인스턴스 상태 복구
-          if (savedInstanceState != null) {
-              str = savedInstanceState.getString(STATE_KEY);
-          }
+            // 인스턴스 상태 복구
+            if (savedInstanceState != null) {
+                str = savedInstanceState.getString(STATE_KEY);
+            }
 
-          setContentView(R.layout.main_activity);
+            setContentView(R.layout.main_activity);
 
-          ...
-      }
-      ```
+            ...
+        }
+        ```
 
-      onCreate() 메서드가 실행을 완료하면 시작됨 상태가 되고, 시스템이 연달아 onStart()와 onResume() 메서드를 호출한다.<br><br>
+        onCreate() 메서드가 실행을 완료하면 시작됨 상태가 되고, 시스템이 연달아 onStart()와 onResume() 메서드를 호출한다.<br><br>
 
       - OnStart()
 
-      
+
 
   <br>  
   * Context
