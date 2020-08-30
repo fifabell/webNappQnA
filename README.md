@@ -33,7 +33,32 @@
       활동이 생성되면 생성됨 상태가 된다. onCreate() 메서드에서 활동의 전체 수명 주기 동안 한 번만 발생해야 하는 기본 애플리케이션 시작 로직을 실행한다. <br>
       예를 들어 onCreate()를 구현하면 데이터를 목록에 바인딩하고, 활동을 ViewModel과 연결하고, 일부 클래스 범위 변수를 인스턴스화할 수도 있다.<br>
       이 메서드는 savedInstanceState 매개변수를 수신하는데, 이는 활동의 이전 저장 상태가 포함된 Bundle 객체다.<br>
-      이번에 처음 생성된 활동인 경우 Bundle 객체의 값은 null이다.
+      이번에 처음 생성된 활동인 경우 Bundle 객체의 값은 null이다.<br><br>
+
+      ```java
+
+      String str;
+
+      @Override
+      public void onCreate(Bundle savedInstanceState) {
+          super.onCreate(savedInstanceState);
+
+          // 인스턴스 상태 복구
+          if (savedInstanceState != null) {
+              str = savedInstanceState.getString(STATE_KEY);
+          }
+
+          setContentView(R.layout.main_activity);
+
+          ...
+      }
+      ```
+
+      onCreate() 메서드가 실행을 완료하면 시작됨 상태가 되고, 시스템이 연달아 onStart()와 onResume() 메서드를 호출한다.<br><br>
+
+      - OnStart()
+
+      
 
   <br>  
   * Context
