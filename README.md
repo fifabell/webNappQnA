@@ -25,7 +25,7 @@
     스택의 최상위(top)에 있는 현재 액티비티를 제거(pop and destroy)하고 이전의 액티비티를 시작한다.
     
     - Activity 생명주기(LifeCycle)
-    ![LifeCycle](./LifeCycle.png)
+    ![LifeCycle](./img/LifeCycle.png)
 
     test
   <br>  
