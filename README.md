@@ -12,48 +12,94 @@
 
   
   <details>
-    <summary> Activity / Context </summary>
+    <summary> 
+        Activity / Context 
+    </summary>
     ㅇㅇㅇㅇㅇㅇ
   </details>
 
-  - AsyncTask
+  <details>
+    <summary> 
+        AsyncTask 
+    </summary>
+  </details>
  
-  - Background
+  <details>
+    <summary> 
+        Background 
+    </summary>
+
     * thread
     * handler
     * message
     * messageQueue
     * looper
     * runnable
+  </details>
   
-  - Connection
+  <details>
+    <summary> 
+        Connection 
+    </summary>
+
     * URLConnection
     * HttpsURLConnection
     * TrustManager
+  </details>
 
-  - Input output
+  <details>
+    <summary> 
+        Input output 
+    </summary>
+  </details>
     * InputStream 
     * InputStreamReader
     
-  - Inflater
+  <details>
+    <summary> 
+        Inflater 
+    </summary>
+  </details>
     
-  - Listener
+  <details>
+    <summary> 
+        Listener 
+    </summary>
+  </details>
     
-  - WebView
+  <details>
+    <summary> 
+        WebView 
+    </summary>
+
     * WebView 
     * Drawer
+  </details>
 
-  - SharedPreference
+  <details>
+    <summary> 
+        SharedPreference 
+    </summary>
+  </details>
     
-  - etc
+  <details>
+    <summary> 
+        etc 
+    </summary>
+
     * ArrayList<HashMap>
     * static 
     * Callback
     * OncreateOptionsMenu
+  </details>
     
---- 
+---
 
 ### 2. 웹  🖥
 
-  - 통신
+  <details>
+    <summary> 
+        통신 
+    </summary>
+  </details>
 
