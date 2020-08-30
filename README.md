@@ -12,15 +12,8 @@
 
   
   <details>
-    <summary>  - Activity / Context </summary>
-      <div markdown="1">
-
-        |제목|내용|
-        |--|--|
-        |1|1|
-        |2|10|
-
-      </div>
+    <summary> Activity / Context </summary>
+    ㅇㅇㅇㅇㅇㅇ
   </details>
 
   - AsyncTask
