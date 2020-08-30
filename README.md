@@ -51,9 +51,10 @@
     <summary> 
         Input output 
     </summary>
-  </details>
     * InputStream 
     * InputStreamReader
+  </details>
+    
     
   <details>
     <summary> 
