@@ -5,7 +5,7 @@
 
 1. 안드로이드
 
-    - Activity / Context
+  - Activity / Context
 
   - AsyncTask
  
