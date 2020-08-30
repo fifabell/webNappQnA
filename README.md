@@ -33,6 +33,8 @@
     
   - Inflater
     
+  - Listener
+    
   - WebView
     * WebView 
     * Drawer
@@ -40,9 +42,10 @@
   - SharedPreference
     
   - etc
-    * static 
     * ArrayList<HashMap>
-    
+    * static 
+    * Callback
+    * OncreateOptionsMenu
     
 --- 
 
