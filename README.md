@@ -3,7 +3,7 @@
 👻 <br>
 안드로이드와 웹을 공부하면서 궁금한 것들을 정리합니다.
 
-- recent updates : 2020-08-30
+- recent updates : `r format(Sys.time(), "%d %B, %Y")`
 
 ---
 ## 목차
@@ -90,7 +90,7 @@
       onDestroy() 콜백은 이전의 콜백에서 아직 해제되지 않은 모든 리소스(예: onStop())를 해제해야 한다.<br><br>  
 
   * Context
-    - 정의 : 
+    - 정의 : 새로 생성된 객체가 지금 어떤 일이 일어나고 있는지 알 수 있도록 한다. 따라서 액티비티와 애플리케이션에 대한 정보를 얻기 위해서는 컨텍스트를 사용하면 된다.
     
   <br>  
   
@@ -188,6 +188,10 @@
     * static 
     * Callback
     * OncreateOptionsMenu
+    * singleton
+    * MVC
+    * JSONParse
+    * NavigationView
     
   [Top of page](#목차)
   </details>
