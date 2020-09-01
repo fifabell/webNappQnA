@@ -1,9 +1,13 @@
+---
+date: "`r format(Sys.Date())`" 
+---
+
 # webNapp QnA
 
 👻 <br>
 안드로이드와 웹을 공부하면서 궁금한 것들을 정리합니다.
 
-- recent updates : `r format(Sys.time(), "%d %B, %Y")`
+- recent updates : date
 
 ---
 ## 목차
