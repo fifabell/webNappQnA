@@ -1,5 +1,5 @@
 ---
-date: _baptiste, `r format(Sys.time(), "%d %B, %Y")`_
+date: "`r format(Sys.time(), '%d %B, %Y')`"
 ---
 
 # webNapp QnA
