@@ -13,7 +13,7 @@
   
   <details>
     <summary> 
-        Activity / Context 
+        Activity vs AppCompatActivity and Context
     </summary>
   
   * Activity
@@ -89,8 +89,15 @@
       구성 변경으로 인해 onDestroy()가 호출되는 경우 시스템이 즉시 새 활동 인스턴스를 생성한 다음, 새로운 구성에서 그 새로운 인스턴스에 관해 onCreate()를 호출한다.<br><br>
       onDestroy() 콜백은 이전의 콜백에서 아직 해제되지 않은 모든 리소스(예: onStop())를 해제해야 한다.<br><br>  
 
+  * AppCompatActivity
+    - __정의__ <br>
+      안드로이드의 하위버전을 지원하는 액티비티이다. <br><br>
+      하위버전 메소드가 실행이 안될 때 지를 지원하기 위해 AppCompatActivity를 사용하며,<br>
+      ActionBar 역시 하위 버전 단말기에서는 이 액티비티를 사용해야 한다.<br><br>
+
   * Context
     - __정의__ <br>
+      안드로이드 시스템에서 제공하는 추상 클래스이다.<br>
       새로 생성된 객체가 지금 어떤 일이 일어나고 있는지 알 수 있도록 한다. 따라서 액티비티와 애플리케이션에 대한 정보를 얻기 위해서는 컨텍스트를 사용하면 된다.
 
     - __Application Context__ <br>
@@ -98,11 +105,7 @@
       이 컨텍스트는 애플리케이션의 라이프사이클과 연결되어 있다. 애플리케이션 컨텍스트는 현재의 컨텍스트와 분리된 라이프사이클을 가진 컨텍스트가 필요할 때나 액티비티의 범위를 넘어서 컨텍스트를 전달할 떄에 사용한다.
 
     - __Activity Context__ <br>
-      액티비티 컨텍스트는 액티비티에서 사용 가능하며 이 컨텍스트는 액티비티의 라이프사이클과 연결되어 있다. 액티비티의 범위 내에서 컨텍스트를 전달하거나, 라이프사이클이 현재의 컨텍스트에 붙은 컨텍스트가 필요할 때(need the context whose lifecycle is attached to the current context) 액티비티 컨텍스트를 사용한다.
-
-    
-    
-  <br>  
+      액티비티 컨텍스트는 액티비티에서 사용 가능하며 이 컨텍스트는 액티비티의 라이프사이클과 연결되어 있다. 액티비티의 범위 내에서 컨텍스트를 전달하거나, 라이프사이클이 현재의 컨텍스트에 붙은 컨텍스트가 필요할 때(need the context whose lifecycle is attached to the current context) 액티비티 컨텍스트를 사용한다.<br><br>  
   
   [Top of page](#목차)
   </details>
@@ -111,6 +114,21 @@
     <summary> 
         AsyncTask 
     </summary>
+
+    - __정의__ <br>
+    쓰레드, 메시지루프 등의 원리를 이해하지 않아도 `하나의 클래스에서 UI 작업을 쉽게 할 수 있게 해준다`.<br>
+    
+    - __사용법__ <br>
+    
+    ![AsyncTask](./img/asyncTask.jpg)
+    `onPreExcuted()` -> `doInBackground()` -> { publishProgress() -> onProgressUpdate():UI refresh } -> return(result) -> `onPostExcuted()` <br>
+    크게 세
+
+
+    - __장점__ <br>
+    쓰레드, 메시지
+
+    - __단점__ <br>
   
   [Top of page](#목차)
   </details>
@@ -202,6 +220,9 @@
     * MVC
     * JSONParse
     * NavigationView
+    * Serializable
+    * FTPClient
+    * fileprovider
     
   [Top of page](#목차)
   </details>
