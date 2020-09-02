@@ -115,20 +115,20 @@
         AsyncTask 
     </summary>
 
-    - __정의__ <br>
-    쓰레드, 메시지루프 등의 원리를 이해하지 않아도 `하나의 클래스에서 UI 작업을 쉽게 할 수 있게 해준다`.<br>
-    
-    - __사용법__ <br>
-    
-    ![AsyncTask](./img/asyncTask.jpg)
-    `onPreExcuted()` -> `doInBackground()` -> { publishProgress() -> onProgressUpdate():UI refresh } -> return(result) -> `onPostExcuted()` <br>
-    크게 세
+  - __정의__ <br>
+  쓰레드, 메시지루프 등의 원리를 이해하지 않아도 `하나의 클래스에서 UI 작업을 쉽게 할 수 있게 해준다`.<br>
+  
+  - __사용법__ <br>
+  
+  ![AsyncTask](./img/asyncTask.jpg)
+  `onPreExcuted()` -> `doInBackground()` -> { publishProgress() -> onProgressUpdate():UI refresh } -> return(result) -> `onPostExcuted()` <br>
+  크게 세
 
 
-    - __장점__ <br>
-    쓰레드, 메시지
+  - __장점__ <br>
+  쓰레드, 메시지
 
-    - __단점__ <br>
+  - __단점__ <br>
   
   [Top of page](#목차)
   </details>
