@@ -121,12 +121,21 @@
   - __사용법__ <br>
   
   ![AsyncTask](./img/asyncTask.jpg)
-  `onPreExcuted()` -> `doInBackground()` -> { publishProgress() -> onProgressUpdate():UI refresh } -> return(result) -> `onPostExcuted()` <br>
-  크게 세
+  `onPreExcuted()` -> `doInBackground()` -> { `publishProgress()` -> onProgressUpdate():UI refresh } -> return(result) -> `onPostExcuted()` <br>
+  excute()명령을 통해 AsyncTask 명령어 실행.<br>
+  이후 크게 네 가지만 알고 넘어가자.<br>
+  
+  * onPreExcuted() : 스레드 작업 이전에 수행할 동작을 구현.<br>
+  * publishProgress() : doInBackground()에서 중간중간 진행 상태를 UI에 업데이트 하도록 하는 메서드 -> 자동으로 onProgressUpdate()가 호출 됨.<br>
+  * doInBackground() : 실제 스레드 작업이 진행.<br>
+  * onPostExcuted() : 결과 파라미터를 리턴하면서 그 리턴값을 통해 스레드 작업이 끝났을 때 동작을 구현.<br><br>
 
+  - __제약조건__ <br>
+  쓰레드, 메시지
 
   - __장점__ <br>
-  쓰레드, 메시지
+  * 비교적 오래 걸리지 않은 작업에 유용함.<br>
+  * Task 캔슬이 용이하며 로직과 UI 조작이 동시에 일어나야 할 때 사용<br>
 
   - __단점__ <br>
   
