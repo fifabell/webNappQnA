@@ -116,35 +116,35 @@
     </summary>
 
   - __정의__ <br>
-  쓰레드, 메시지루프 등의 원리를 이해하지 않아도 `하나의 클래스에서 UI 작업을 쉽게 할 수 있게 해준다`.<br>
+    쓰레드, 메시지루프 등의 원리를 이해하지 않아도 `하나의 클래스에서 UI 작업을 쉽게 할 수 있게 해준다`.<br>
   
   - __사용법__ <br>
   
-  ![AsyncTask](./img/asyncTask.jpg)
-  `onPreExcuted()` -> `doInBackground()` -> { `publishProgress()` -> onProgressUpdate():UI refresh } -> return(result) -> `onPostExcuted()` <br>
-  excute()명령을 통해 AsyncTask 명령어 실행.<br>
-  이후 크게 네 가지만 알고 넘어가자.<br>
-  
-  * onPreExcuted() : 스레드 작업 이전에 수행할 동작을 구현.<br>
-  * publishProgress() : doInBackground()에서 중간중간 진행 상태를 UI에 업데이트 하도록 하는 메서드 -> 자동으로 onProgressUpdate()가 호출 됨.<br>
-  * doInBackground() : 실제 스레드 작업이 진행.<br>
-  * onPostExcuted() : 결과 파라미터를 리턴하면서 그 리턴값을 통해 스레드 작업이 끝났을 때 동작을 구현.<br><br>
+    ![AsyncTask](./img/asyncTask.jpg)
+    `onPreExcuted()` -> `doInBackground()` -> { `publishProgress()` -> onProgressUpdate():UI refresh } -> return(result) -> `onPostExcuted()` <br>
+    excute()명령을 통해 AsyncTask 명령어 실행.<br>
+    이후 크게 네 가지만 알고 넘어가자.<br>
+    
+    * onPreExcuted() : 스레드 작업 이전에 수행할 동작을 구현.<br>
+    * publishProgress() : doInBackground()에서 중간중간 진행 상태를 UI에 업데이트 하도록 하는 메서드 -> 자동으로 onProgressUpdate()가 호출 됨.<br>
+    * doInBackground() : 실제 스레드 작업이 진행.<br>
+    * onPostExcuted() : 결과 파라미터를 리턴하면서 그 리턴값을 통해 스레드 작업이 끝났을 때 동작을 구현.<br><br>
 
   - __제약조건__ <br>
-  * API16(젤리빈) 미만 버전에서는 AsyncTask 선언을 UI Thread에서 해주지 않으면 오류가 발생한다. <br>
-  * excutes(Params)는 UI 스레드에서 직접 호출해야한다. <br>
-  * 수동으로 onPreExecute(), onPostExecute(Result), doInBackground(Params...), onProgressUpdate(Progress...) 호출하면 안된다. <br>
-  * Task는 오직 한번만 실행될 수 있다.
+    * API16(젤리빈) 미만 버전에서는 AsyncTask 선언을 UI Thread에서 해주지 않으면 오류가 발생한다. <br>
+    * excutes(Params)는 UI 스레드에서 직접 호출해야한다. <br>
+    * 수동으로 onPreExecute(), onPostExecute(Result), doInBackground(Params...), onProgressUpdate(Progress...) 호출하면 안된다. <br>
+    * Task는 오직 한번만 실행될 수 있다.
 
   - __장점__ <br>
-  * 비교적 오래 걸리지 않은 작업에 유용함.<br>
-  * Task 캔슬이 용이하며 로직과 UI 조작이 동시에 일어나야 할 때 사용<br>
+    * 비교적 오래 걸리지 않은 작업에 유용함.<br>
+    * Task 캔슬이 용이하며 로직과 UI 조작이 동시에 일어나야 할 때 사용<br>
 
   - __단점__ <br>
-  * 하나의 객체이므로 재사용이 불가능하다. (메모리 효율 문제) <br>
-  * 구현한 액티비티 종료 시 별도의 지시가 없다면 종료되지 않는다. <br>
-  * Activity 종료 후 재시작 시 AsyncTask의 Reference는 무효하며, onPostExecute() 메소드는 새로운 Activit에 어떠한 영향도 끼치지 못한다. <br>
-  * AsyncTask의 기본 처리 작업 개수는 1개다. <br>
+    * 하나의 객체이므로 재사용이 불가능하다. (메모리 효율 문제) <br>
+    * 구현한 액티비티 종료 시 별도의 지시가 없다면 종료되지 않는다. <br>
+    * Activity 종료 후 재시작 시 AsyncTask의 Reference는 무효하며, onPostExecute() 메소드는 새로운 Activit에 어떠한 영향도 끼치지 못한다. <br>
+    * AsyncTask의 기본 처리 작업 개수는 1개다. <br>
 
   [Top of page](#목차)
   </details>
