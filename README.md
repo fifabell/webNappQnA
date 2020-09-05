@@ -24,7 +24,7 @@
     백스택은 '스택(LIFO)' 매커니즘을 따르며, 사용자가 뒤로가기 버튼을 누를 경우, <br>
     스택의 최상위(top)에 있는 현재 액티비티를 제거(pop and destroy)하고 이전의 액티비티를 시작한다.
     
-    - Activity 생명주기(LifeCycle)
+    - __Activity 생명주기(LifeCycle)__
 
     ![LifeCycle](./img/LifeCycle.png)
 
@@ -90,7 +90,8 @@
       onDestroy() 콜백은 이전의 콜백에서 아직 해제되지 않은 모든 리소스(예: onStop())를 해제해야 한다.<br><br>  
 
   * Context
-    - 정의 : 
+    - __정의__ <br>
+     
     
   <br>  
   
