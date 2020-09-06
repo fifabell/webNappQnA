@@ -3,7 +3,7 @@
 👻 <br>
 안드로이드와 웹을 공부하면서 궁금한 것들을 정리합니다.
 
-- recent updates : 2020-09-03
+- recent updates : 2020-09-06
 
 ---
 ## 목차
@@ -13,7 +13,7 @@
   
   <details>
     <summary> 
-        Activity vs AppCompatActivity and Context
+      Activity vs AppCompatActivity and Context
     </summary>
   
   * Activity
@@ -112,11 +112,14 @@
 
   <details>
     <summary> 
-        AsyncTask 
+      AsyncTask 
     </summary>
     
   - __정의__ <br>
     쓰레드, 메시지루프 등의 원리를 이해하지 않아도 `하나의 클래스에서 UI 작업을 쉽게 할 수 있게 해준다`.<br>
+    안드로이드는 UI를 담당하는 메인 스레드가 존재하는데, 이 스레드는 우리가 함부로 접근이 불가능하게 막아뒀다.<br>
+    UI변경은 메인 스레드에서만 가능하므로, 우리가 만든 스레드에서는 화면을 바꾸는 어떠한 일도 할 수 없다.<br>
+    이 작업을 가능하게 해주는 것이 바로 이 AsyncTasc이다.
   
   - __사용법__ <br>
   
@@ -168,6 +171,10 @@
 
     멀티스레드의 단점에는 각각의 스레드 중 어떤 것이 먼저 실행될지 그 순서를 알 수 없다는 것이 있다.<br>  
 
+  * Runnable
+    Thread의 인터페이스화 된 형태이며, Thread내의 run()메서드를 통해 수행할 내용들을 정의한다.<br>
+    void run() : 이 스레드가 별도의 Runnable실행 객체를 사용하여 작성된 경우 해당 Runnable객체의 run메소드가 호출된다.<br>
+
   * Cycle 
   - ThreadCycle
 
@@ -217,7 +224,7 @@
     Message의 what필드를 전달하는 함수<br>
 
     * Handler.post(new Runnable())<br>
-    Runnablwe 객체를 message queue에 전달하는 함수.<br>
+    Runnable 객체를 message queue에 전달하는 함수.<br>
     post를 통해 전달된 Runnable 객체는 해당 핸들러가 연결된 스레드에서 실행된다. UI작업을 처리하기 위해 핸들러를 메인 스레드에서 생성하여 핸들러와 메인 스레드가 연결되어 있어야 한다.<br>
 
 
@@ -227,32 +234,62 @@
     다른 스레드에게 메시지를 전달하려면 수신 대상 스레드에서 생성한 핸들러의 post나 sendMessage등의 함수를 사용해야 한다. 이후 수신대상 스레드의 Message Queue에 message가 저장된다.<br>
     Message Queue에 저장된 message나 runnable은 Looper가 차례대로 꺼내서 핸들러로 전달한다. 
   
-  * looper
-  * runnable
+  * Looper
+  - __정의__ <br>
+    루퍼는 스레드당 하나씩 밖에 가질 수 없고, 루퍼는 Message queue가 비어있는 동안 아무 행동도 하지 않고, 메시지가 들어오면 해당 메시지를 꺼내 적절한 Handler로 전달한다. 기본적으로 새로 생성한 스레드는 루퍼를 가지지 않고 Loper.prepare() 메서드를 호출해야 Looper가 생성된다.<br>
 
   [Top of page](#목차)
   </details>
   
   <details>
     <summary> 
-        Connection 
+      Connection 
     </summary>
 
-    * URLConnection
-    * HttpsURLConnection
-    * TrustManager
-  
+  * URLConnection
+  - __정의__ <br>
+   사용자 인증이나 보안이 설정되어 있지 않은 웹서버에 접속하여 파일 등을 다운로드하는 데 많이 사용된다.
+
+  * HttpsURLConnection
+  ```java
+  public abstract class HttpURLConnection extends URLConnection
+  {
+    URL u = new URL("https://www.naver.com");
+    HttpURLConnection http = (HttpURLConnection) u.openConnection();
+  }
+  ```
+  URLConnection 클래스와 마찬가지로 생성자가 protected로 선언되어있기 때문에 기본적으로는 개발자가 직접 HttpURLConnection 객체를 생성할 수 없다.<br>
+
+  하지만 http URL을 사용하는 URL 객체의 openConnection() 메서드가 리턴하는 URLConnection 객체는 HttpURLConnection의 인스턴스가 될 수 있기 때문에 리턴된 URLConnection을 HttpURLConnection으로 캐스팅해서 사용한다. <br>
+
+  * TrustManager
+  쉽게 생각해서 웹에서 ssl인증서라고 보면된다.<br>
+  하지만, googleplay에서 이를 신뢰하지 않아, CertificateExcetion 또는 IllegalArgumentException 예외를 발생시키는 코드를 구현해야 한다.
+
   [Top of page](#목차)
   </details>
 
   <details>
     <summary> 
-        Input output 
+      stream
     </summary>
 
-    * InputStream 
-    * InputStreamReader
-  
+  - __정의__ <br>
+    데이터의 흐름을 의미한다.<br>
+    입력 스트림은 마우스, 키보드, 네트워크 등과 같은 입력 장치로부터 입력된 데이터가 순서대로 프로그램으로 흘러가는 데이터의 흐름을 뜻한다.<br>
+    출력 스트림은 프로그램에서 출력된 데이터가 프린터, 모니터, 네트워크 등과 같은 출력장치로 순서대로 전송되도록 보장하는 데이터의 흐름이다.<br>
+    스트림을 통해 흘러가는 데이터의 기본 단위는 바이트이다.
+
+  - __종류__ <br>
+  * In/OutputStream
+    이 클래스는 추상 클래스로서 바이트 스트림의 기능을 갖는 모든 클래스의 상위 클래스이다.
+
+  * FileIn/OutputStream
+    이 스트림을 이용해서 파일 시스템에 있는 파일로부터 바이트 데이터를 읽거나 파일에 바이트 데이터를 저장할 수 있다. 즉, 파일 입출력용 스트림이다.
+
+  * DataIn/OutputStream
+    이 스트림을 이용하면 자바 기본 타입의 데이터들이 바이너리 바이트(이진값)으로 다루어진다.
+
   [Top of page](#목차)
   </details>
     
@@ -275,7 +312,7 @@
     
   <details>
     <summary> 
-        WebView 
+      WebView 
     </summary>
 
     * WebView 
@@ -331,6 +368,7 @@
         참고
     </summary>
     [background](https://brunch.co.kr/@mystoryg/84)
+    [UrlConnection](https://goddaehee.tistory.com/161)
   
   [Top of page](#목차)
   </details>
