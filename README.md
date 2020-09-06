@@ -158,85 +158,85 @@
     </summary>
 
   * thread vs process
-  - __Thread 정의__ <br>
-    스레드(thread)는 어떠한 프로그램 내에서, 특히 프로세스 내에서 실행되는 흐름의 단위를 말한다. 일반적으로 한 프로그램은 하나의 스레드를 가지고 있지만, 프로그램 환경에 따라 둘 이상의 스레드를 동시에 실행할 수 있다. 이러한 실행 방식을 멀티스레드(multithread)라고 한다.<br>
+    - __Thread 정의__ <br>
+      스레드(thread)는 어떠한 프로그램 내에서, 특히 프로세스 내에서 실행되는 흐름의 단위를 말한다. 일반적으로 한 프로그램은 하나의 스레드를 가지고 있지만, 프로그램 환경에 따라 둘 이상의 스레드를 동시에 실행할 수 있다. 이러한 실행 방식을 멀티스레드(multithread)라고 한다.<br>
 
-  - __process 정의__ <br>
-    프로세스(process)는 컴퓨터에서 연속적으로 실행되고 있는 컴퓨터 프로그램을 말한다. 종종 스케줄링의 대상이 되는 작업(task)이라는 용어와 거의 같은 의미로 쓰인다. 여러 개의 프로세서를 사용하는 것을 멀티프로세싱이라고 하며 같은 시간에 여러 개의 프로그램을 띄우는 시분할 방식을 멀티태스킹이라고 한다.<br>
-    
-  - __thread vs process__ <br>    
-    멀티프로세스와 멀티스레드는 양쪽 모두 여러 흐름이 동시에 진행된다는 공통점을 가지고 있다. 하지만 멀티프로세스에서 각 `프로세스는 독립적으로 실행되며 각각 별개의 메모리를 차지`하고 있는 것과 달리 멀티스레드는 프로세스 내의 `메모리를 공유`해 사용할 수 있다. 또한 프로세스 간의 전환 속도보다 `스레드 간의 전환 속도가 빠르다`.<br>
+    - __process 정의__ <br>
+      프로세스(process)는 컴퓨터에서 연속적으로 실행되고 있는 컴퓨터 프로그램을 말한다. 종종 스케줄링의 대상이 되는 작업(task)이라는 용어와 거의 같은 의미로 쓰인다. 여러 개의 프로세서를 사용하는 것을 멀티프로세싱이라고 하며 같은 시간에 여러 개의 프로그램을 띄우는 시분할 방식을 멀티태스킹이라고 한다.<br>
+      
+    - __thread vs process__ <br>    
+      멀티프로세스와 멀티스레드는 양쪽 모두 여러 흐름이 동시에 진행된다는 공통점을 가지고 있다. 하지만 멀티프로세스에서 각 `프로세스는 독립적으로 실행되며 각각 별개의 메모리를 차지`하고 있는 것과 달리 멀티스레드는 프로세스 내의 `메모리를 공유`해 사용할 수 있다. 또한 프로세스 간의 전환 속도보다 `스레드 간의 전환 속도가 빠르다`.<br>
 
-    멀티스레드의 다른 장점은 CPU가 여러 개일 경우에 각각의 CPU가 스레드 하나씩을 담당하는 방법으로 속도를 높일 수 있다는 것이다. 이러한 시스템에서는 여러 스레드가 실제 시간상으로 동시에 수행될 수 있기 때문이다.<br>
+      멀티스레드의 다른 장점은 CPU가 여러 개일 경우에 각각의 CPU가 스레드 하나씩을 담당하는 방법으로 속도를 높일 수 있다는 것이다. 이러한 시스템에서는 여러 스레드가 실제 시간상으로 동시에 수행될 수 있기 때문이다.<br>
 
-    멀티스레드의 단점에는 각각의 스레드 중 어떤 것이 먼저 실행될지 그 순서를 알 수 없다는 것이 있다.<br>  
+      멀티스레드의 단점에는 각각의 스레드 중 어떤 것이 먼저 실행될지 그 순서를 알 수 없다는 것이 있다.<br>  
 
   * Runnable
     Thread의 인터페이스화 된 형태이며, Thread내의 run()메서드를 통해 수행할 내용들을 정의한다.<br>
     void run() : 이 스레드가 별도의 Runnable실행 객체를 사용하여 작성된 경우 해당 Runnable객체의 run메소드가 호출된다.<br>
 
   * Cycle 
-  - ThreadCycle
+    - ThreadCycle
 
-  ![threadcycle](./img/Thread.png)
+    ![threadcycle](./img/Thread.png)
 
-  1. 안드로이드에서 제공하는 handler 클래스를 상속하는 클래스를 만든다.
-  2. 메시지 큐에 메모리 공간을 얻기위해 obtainMessage 메소드를 이용하여 메시지 공간을 만든다.
-  ```java
-    Message msg = handler.ObtainMessage();
-  ```
-  3. 메시지 데이터를 넣기위해 Bundle 객체를 사용한다.
-  ```java
-    Bundle bundle = new Bundle();
-  ```
-  4. bundle.putString 메소드를 사용해 입력값을 집어넣는다.
-  ```java
-    bundle.putSting(key, text);
-  ```
-  5. 메시지에 번들데이터를 집어 넣는다.
-  ```java
-    msg.setData(bundle);
-  ```
-  6. 메시지큐로 보낸다.
-  ```java
-    handler.sendMessage(msg);
-  ```
-  7. 핸들러 클래스에서는 전송된 메시지를 받는다.
-  ```java
-    bundle = msg.getData();
-  ```
-  8. bundle에서 전달된 데이터를 받는다.
-  ```java
-    text = bundle.getString(key);
-  ```
+    1. 안드로이드에서 제공하는 handler 클래스를 상속하는 클래스를 만든다.
+    2. 메시지 큐에 메모리 공간을 얻기위해 obtainMessage 메소드를 이용하여 메시지 공간을 만든다.
+    ```java
+      Message msg = handler.ObtainMessage();
+    ```
+    3. 메시지 데이터를 넣기위해 Bundle 객체를 사용한다.
+    ```java
+      Bundle bundle = new Bundle();
+    ```
+    4. bundle.putString 메소드를 사용해 입력값을 집어넣는다.
+    ```java
+      bundle.putSting(key, text);
+    ```
+    5. 메시지에 번들데이터를 집어 넣는다.
+    ```java
+      msg.setData(bundle);
+    ```
+    6. 메시지큐로 보낸다.
+    ```java
+      handler.sendMessage(msg);
+    ```
+    7. 핸들러 클래스에서는 전송된 메시지를 받는다.
+    ```java
+      bundle = msg.getData();
+    ```
+    8. bundle에서 전달된 데이터를 받는다.
+    ```java
+      text = bundle.getString(key);
+    ```
 
   * handler
-  - __정의__ <br>
-    Worker Thread에서 Main Thread로 메시지를 전달하는 역할을 수행.<br>
-    안드로이드에서 UI처리를 위해 사용되는 기본 스레드는 ‘메인 스레드(Main Thread)’라고 부른다. 이 메인 스레드에서 이미 UI에 접근하고 있으므로 새로 생성한 다른 스레드에서는 핸들러(Handler) 객체를 이용해 메시지를 전달함으로써 메인 스레드에서 처리하도록 만들 수 있다.<br> 
-    동시 접근에 따른 데드락 문제를 해결하는 가장 간단한 방법은 작업을 순서대로 처리하는 것이다. 이 역할은 메인스레드의 핸들러가 담당하여 처리한다.<br>
+    - __정의__ <br>
+      Worker Thread에서 Main Thread로 메시지를 전달하는 역할을 수행.<br>
+      안드로이드에서 UI처리를 위해 사용되는 기본 스레드는 ‘메인 스레드(Main Thread)’라고 부른다. 이 메인 스레드에서 이미 UI에 접근하고 있으므로 새로 생성한 다른 스레드에서는 핸들러(Handler) 객체를 이용해 메시지를 전달함으로써 메인 스레드에서 처리하도록 만들 수 있다.<br> 
+      동시 접근에 따른 데드락 문제를 해결하는 가장 간단한 방법은 작업을 순서대로 처리하는 것이다. 이 역할은 메인스레드의 핸들러가 담당하여 처리한다.<br>
 
-  - __주요함수__ <br>
-    * Handler.sendMessage(Message msg)<br>
-    Message 객체를 message queue에 전달하는 함수.<br>
+    - __주요함수__ <br>
+      * Handler.sendMessage(Message msg)<br>
+      Message 객체를 message queue에 전달하는 함수.<br>
 
-    * Handler.sendEmptyMessage(int what)<br>
-    Message의 what필드를 전달하는 함수<br>
+      * Handler.sendEmptyMessage(int what)<br>
+      Message의 what필드를 전달하는 함수<br>
 
-    * Handler.post(new Runnable())<br>
-    Runnable 객체를 message queue에 전달하는 함수.<br>
-    post를 통해 전달된 Runnable 객체는 해당 핸들러가 연결된 스레드에서 실행된다. UI작업을 처리하기 위해 핸들러를 메인 스레드에서 생성하여 핸들러와 메인 스레드가 연결되어 있어야 한다.<br>
+      * Handler.post(new Runnable())<br>
+      Runnable 객체를 message queue에 전달하는 함수.<br>
+      post를 통해 전달된 Runnable 객체는 해당 핸들러가 연결된 스레드에서 실행된다. UI작업을 처리하기 위해 핸들러를 메인 스레드에서 생성하여 핸들러와 메인 스레드가 연결되어 있어야 한다.<br>
 
 
   * messageQueue
-  - __정의__ <br>
-    핸들러가 전달하는 message를 보관하는 FIFO(First In First Out)방식의 큐이다.<br>
-    다른 스레드에게 메시지를 전달하려면 수신 대상 스레드에서 생성한 핸들러의 post나 sendMessage등의 함수를 사용해야 한다. 이후 수신대상 스레드의 Message Queue에 message가 저장된다.<br>
-    Message Queue에 저장된 message나 runnable은 Looper가 차례대로 꺼내서 핸들러로 전달한다. 
+    - __정의__ <br>
+      핸들러가 전달하는 message를 보관하는 FIFO(First In First Out)방식의 큐이다.<br>
+      다른 스레드에게 메시지를 전달하려면 수신 대상 스레드에서 생성한 핸들러의 post나 sendMessage등의 함수를 사용해야 한다. 이후 수신대상 스레드의 Message Queue에 message가 저장된다.<br>
+      Message Queue에 저장된 message나 runnable은 Looper가 차례대로 꺼내서 핸들러로 전달한다. 
   
   * Looper
-  - __정의__ <br>
-    루퍼는 스레드당 하나씩 밖에 가질 수 없고, 루퍼는 Message queue가 비어있는 동안 아무 행동도 하지 않고, 메시지가 들어오면 해당 메시지를 꺼내 적절한 Handler로 전달한다. 기본적으로 새로 생성한 스레드는 루퍼를 가지지 않고 Loper.prepare() 메서드를 호출해야 Looper가 생성된다.<br>
+    - __정의__ <br>
+      루퍼는 스레드당 하나씩 밖에 가질 수 없고, 루퍼는 Message queue가 비어있는 동안 아무 행동도 하지 않고, 메시지가 들어오면 해당 메시지를 꺼내 적절한 Handler로 전달한다. 기본적으로 새로 생성한 스레드는 루퍼를 가지지 않고 Loper.prepare() 메서드를 호출해야 Looper가 생성된다.<br>
 
   [Top of page](#목차)
   </details>
