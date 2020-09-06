@@ -247,24 +247,24 @@
     </summary>
 
   * URLConnection
-  - __정의__ <br>
-   사용자 인증이나 보안이 설정되어 있지 않은 웹서버에 접속하여 파일 등을 다운로드하는 데 많이 사용된다.
+    - __정의__ <br>
+    사용자 인증이나 보안이 설정되어 있지 않은 웹서버에 접속하여 파일 등을 다운로드하는 데 많이 사용된다.
 
   * HttpsURLConnection
-  ```java
-  public abstract class HttpURLConnection extends URLConnection
-  {
-    URL u = new URL("https://www.naver.com");
-    HttpURLConnection http = (HttpURLConnection) u.openConnection();
-  }
-  ```
-  URLConnection 클래스와 마찬가지로 생성자가 protected로 선언되어있기 때문에 기본적으로는 개발자가 직접 HttpURLConnection 객체를 생성할 수 없다.<br>
+    ```java
+    public abstract class HttpURLConnection extends URLConnection
+    {
+      URL u = new URL("https://www.naver.com");
+      HttpURLConnection http = (HttpURLConnection) u.openConnection();
+    }
+    ```
+    URLConnection 클래스와 마찬가지로 생성자가 protected로 선언되어있기 때문에 기본적으로는 개발자가 직접 HttpURLConnection 객체를 생성할 수 없다.<br>
 
-  하지만 http URL을 사용하는 URL 객체의 openConnection() 메서드가 리턴하는 URLConnection 객체는 HttpURLConnection의 인스턴스가 될 수 있기 때문에 리턴된 URLConnection을 HttpURLConnection으로 캐스팅해서 사용한다. <br>
+    하지만 http URL을 사용하는 URL 객체의 openConnection() 메서드가 리턴하는 URLConnection 객체는 HttpURLConnection의 인스턴스가 될 수 있기 때문에 리턴된 URLConnection을 HttpURLConnection으로 캐스팅해서 사용한다. <br>
 
   * TrustManager
-  쉽게 생각해서 웹에서 ssl인증서라고 보면된다.<br>
-  하지만, googleplay에서 이를 신뢰하지 않아, CertificateExcetion 또는 IllegalArgumentException 예외를 발생시키는 코드를 구현해야 한다.
+    쉽게 생각해서 웹에서 ssl인증서라고 보면된다.<br>
+    하지만, googleplay에서 이를 신뢰하지 않아, CertificateExcetion 또는 IllegalArgumentException 예외를 발생시키는 코드를 구현해야 한다.
 
   [Top of page](#목차)
   </details>
