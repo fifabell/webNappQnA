@@ -278,7 +278,7 @@
     데이터의 흐름을 의미한다.<br>
     입력 스트림은 마우스, 키보드, 네트워크 등과 같은 입력 장치로부터 입력된 데이터가 순서대로 프로그램으로 흘러가는 데이터의 흐름을 뜻한다.<br>
     출력 스트림은 프로그램에서 출력된 데이터가 프린터, 모니터, 네트워크 등과 같은 출력장치로 순서대로 전송되도록 보장하는 데이터의 흐름이다.<br>
-    스트림을 통해 흘러가는 데이터의 기본 단위는 바이트이다.
+    스트림을 통해 흘러가는 데이터의 기본 단위는 바이트이다.<br>
 
   - __종류__ <br>
   * In/OutputStream
@@ -293,11 +293,28 @@
   [Top of page](#목차)
   </details>
     
-    
   <details>
     <summary> 
         Inflater 
     </summary>
+  -__정의__ <br>
+  Inflater의 사전적 의미는 부풀리다는 뜻으로 LayoutInflater로서, XML에 저장해 둔 틀(Resource)을 실제 메모리(View객체로 반환)에 올려주는 역할을 한다.<br>
+  예로, onCreate()메서드에 있는 setContentView(R.layout.activity_main) 또한 Inflater역할을 한다.<br>
+
+  -__사용조건__ <br>
+  1. 객체화하고자 하는 xml파일(sub1.xml)을 생성한다.
+  2. 
+  ```java
+  LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+  // LayoutInflater 객체 사용할 준비를 완료한다.
+  ```
+  3.
+  ```java
+  inflater.inflate(R.layout.sub1, container, true);
+  // 사전에 미리 선언해뒀던 container라는 레이아웃에 작성했던 xml의 메모리객체가 삽입.
+  ```
+  -__매개변수__<br>
+  inflate( 객체화하고픈 xml파일, 객체화한 뷰를 넣을 부모 레이아웃/컨테이너, true(바로 인플레이션 하고자 하는지))
   
   [Top of page](#목차)
   </details>
@@ -369,6 +386,7 @@
     </summary>
     [background](https://brunch.co.kr/@mystoryg/84)
     [UrlConnection](https://goddaehee.tistory.com/161)
+    [LayoutInflater](https://www.crocus.co.kr/1584)
   
   [Top of page](#목차)
   </details>
