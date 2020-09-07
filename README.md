@@ -297,11 +297,12 @@
     <summary> 
         Inflater 
     </summary>
-  -__정의__ <br>
+
+  - __정의__ <br>
   Inflater의 사전적 의미는 부풀리다는 뜻으로 LayoutInflater로서, XML에 저장해 둔 틀(Resource)을 실제 메모리(View객체로 반환)에 올려주는 역할을 한다.<br>
   예로, onCreate()메서드에 있는 setContentView(R.layout.activity_main) 또한 Inflater역할을 한다.<br>
 
-  -__사용조건__ <br>
+  - __사용조건__ <br>
   1. 객체화하고자 하는 xml파일(sub1.xml)을 생성한다.
   2. 
   ```java
@@ -313,7 +314,7 @@
   inflater.inflate(R.layout.sub1, container, true);
   // 사전에 미리 선언해뒀던 container라는 레이아웃에 작성했던 xml의 메모리객체가 삽입.
   ```
-  -__매개변수__<br>
+  - __매개변수__<br>
   inflate( 객체화하고픈 xml파일, 객체화한 뷰를 넣을 부모 레이아웃/컨테이너, true(바로 인플레이션 하고자 하는지))
   
   [Top of page](#목차)
