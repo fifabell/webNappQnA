@@ -3,7 +3,7 @@
 👻 <br>
 안드로이드와 웹을 공부하면서 궁금한 것들을 정리합니다.
 
-- recent updates : 2020-09-06
+- recent updates : 2020-09-09
 
 ---
 ## 목차
@@ -329,10 +329,7 @@
   이벤트 리스너라고 부르며, 이것은 특정 이벤트를 처리하는 인터페이스다. 이벤트 발생 여부를 기다리다가, 발생시 특정 이벤트를 처리하는 객체이다.<br>
 
   -__종류__<br>
-  |제목|내용|설명
-  |-----|-----|-----|
-  |테스트트트트트트트트|ㅇ|ㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷ|
-
+  ![eventListener](eventListener.png)
 
 
   [Top of page](#목차)
@@ -398,6 +395,7 @@
     [background](https://brunch.co.kr/@mystoryg/84)
     [UrlConnection](https://goddaehee.tistory.com/161)
     [LayoutInflater](https://www.crocus.co.kr/1584)
+    [Listener](https://m.blog.naver.com/PostView.nhn?blogId=netrance&logNo=110125233278&proxyReferer=https:%2F%2Fwww.google.com%2F)
   
   [Top of page](#목차)
   </details>
