@@ -392,10 +392,10 @@
     <summary> 
         참고
     </summary>
-  [background](https://brunch.co.kr/@mystoryg/84)
-  [UrlConnection](https://goddaehee.tistory.com/161)
-  [LayoutInflater](https://www.crocus.co.kr/1584)
-  [Listener](https://m.blog.naver.com/PostView.nhn?blogId=netrance&logNo=110125233278&proxyReferer=https:%2F%2Fwww.google.com%2F)
+  background: <https://brunch.co.kr/@mystoryg/84>
+  UrlConnection: <https://goddaehee.tistory.com/161>
+  LayoutInflater <https://www.crocus.co.kr/1584>
+  Listener <https://m.blog.naver.com/PostView.nhn?blogId=netrance&logNo=110125233278&proxyReferer=https:%2F%2Fwww.google.com%2F>
   
   [Top of page](#목차)
   </details>
