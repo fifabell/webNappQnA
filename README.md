@@ -329,7 +329,7 @@
   이벤트 리스너라고 부르며, 이것은 특정 이벤트를 처리하는 인터페이스다. 이벤트 발생 여부를 기다리다가, 발생시 특정 이벤트를 처리하는 객체이다.<br>
 
   -__종류__<br>
-  ![eventListener](eventListener.png)
+  ![eventListener](./img/eventListener.png)
 
 
   [Top of page](#목차)
