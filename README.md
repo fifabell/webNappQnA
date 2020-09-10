@@ -3,7 +3,7 @@
 👻 <br>
 안드로이드와 웹을 공부하면서 궁금한 것들을 정리합니다.
 
-- recent updates : 2020-09-09
+- recent updates : 2020-09-11
 
 ---
 ## 목차
@@ -154,7 +154,7 @@
  
   <details>
     <summary> 
-        Background(Service)
+        Background
     </summary>
 
   * thread vs process
@@ -320,6 +320,36 @@
   
   [Top of page](#목차)
   </details>
+
+  <details>
+    <summary> 
+        Task 
+    </summary>
+  
+  - __정의__ <br>
+    * Task는 어플리케이션에서 실행되는 액티비티를 보관하고 관리하며 Stack형태의 연속된 Activity로 이루어진다.<br>
+    * 스택 내에서 onCreate(push)-onDestroy(pop)에 의해 움직인다.<br>
+    * 서로 다른 어플리케이션간의 이동에도 Task를 이용해 사용자 경험(UX)를 유지시켜 준다<br>
+    * 최초 적재 액티비티는 Root Activity 라고 하며 어플리케이션 런처로부터 시작된다<br>
+    * 마지막으로 적재되는 액티비티는 Top Activity 라고 하며 현재 화면에 활성화 되어있는 액티비티를 말한다<br>
+    * Task내에는 서로 다른 어플리케이션의 액티비티들이 포함될 수 있어 어플리케이션에 경계없이 하나의 어플리케이션인것 처럼 보이게 해준다<br>
+    * Task의 Stack내에 존재하는 액티비티들은 모두 묶여서 background와 foreground로 함께 이동한다. 홈버튼 클릭(task interrupt => background 이동), 홈버튼 롱클릭(recent task => foreground 이동)<br>
+    * Flag를 사용하여 Task내 액티비티의 흐름을 제어할 수 있다<br>
+
+  - __background vs foreground__ <br>
+    일반적으로 앱을 종료하는 방식은 두 가지다.<br>
+
+    1. 뒤로가기 버튼
+    2. 모두보기-> 앱 날리기
+
+    1번의 경우 프로세스가 백그라운드로 빠지는 것 뿐 실제로 종료되는 게 아니다.-> to background<br>
+    2번의 경우 실제로 프로세스가 날아가게 된다.-> to foreground<br>
+
+  - __Flag__ <br>
+    * Task는 어플
+
+  [Top of page](#목차)
+  </details>
     
   <details>
     <summary> 
@@ -393,11 +423,13 @@
     <summary> 
         참고
     </summary>
+  
   [background](https://brunch.co.kr/@mystoryg/84)
   [UrlConnection](https://goddaehee.tistory.com/161)
   [LayoutInflater](https://www.crocus.co.kr/1584)
   [Listener](https://m.blog.naver.com/PostView.nhn?blogId=netrance&logNo=110125233278&proxyReferer=https:%2F%2Fwww.google.com%2F)
-  
+  [Task](https://arabiannight.tistory.com/entry/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9CAndroid-%ED%83%9C%EC%8A%A4%ED%81%AC%EB%9E%80-Task-Activity-Stack-%EC%96%B4%ED%94%BC%EB%8B%88%ED%8B%B0%EB%9E%80-Android-Affinity-%ED%94%8C%EB%9E%98%EA%B7%B8%EB%9E%80)
+
   [Top of page](#목차)
   </details>
 
