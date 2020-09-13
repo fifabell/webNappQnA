@@ -376,7 +376,7 @@
     각 OS별 내장된 웹 브라우저를 뷰형태로 앱에서 표현할 수 있는 방법이다. WebView를 이용하여 웹페이지를 앱내에서 호출하여 하이브리드 형태의 앱을 개발하는데 유용하게 사용이 가능하다. <br>
     앱 안에 HTML iframe을 넣었다고 생각하면 된다.
       
-    [API공식문서](https://developer.android.com/reference/android/webkit/WebView)<br>
+      [API공식문서](https://developer.android.com/reference/android/webkit/WebView)<br>
 
     - __종류__<br>
     1. UIWebView<br>
@@ -437,12 +437,12 @@
         참고
     </summary>
   
-  [background](https://brunch.co.kr/@mystoryg/84)
-  [UrlConnection](https://goddaehee.tistory.com/161)
-  [LayoutInflater](https://www.crocus.co.kr/1584)
-  [Listener](https://m.blog.naver.com/PostView.nhn?blogId=netrance&logNo=110125233278&proxyReferer=https:%2F%2Fwww.google.com%2F)
-  [Task](https://arabiannight.tistory.com/entry/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9CAndroid-%ED%83%9C%EC%8A%A4%ED%81%AC%EB%9E%80-Task-Activity-Stack-%EC%96%B4%ED%94%BC%EB%8B%88%ED%8B%B0%EB%9E%80-Android-Affinity-%ED%94%8C%EB%9E%98%EA%B7%B8%EB%9E%80)
-  [webview](https://medium.com/@pks2974/fads-9eea83f47607)
+  [background](https://brunch.co.kr/@mystoryg/84)<br>
+  [UrlConnection](https://goddaehee.tistory.com/161)<br>
+  [LayoutInflater](https://www.crocus.co.kr/1584)<br>
+  [Listener](https://m.blog.naver.com/PostView.nhn?blogId=netrance&logNo=110125233278&proxyReferer=https:%2F%2Fwww.google.com%2F)<br>
+  [Task](https://arabiannight.tistory.com/entry/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9CAndroid-%ED%83%9C%EC%8A%A4%ED%81%AC%EB%9E%80-Task-Activity-Stack-%EC%96%B4%ED%94%BC%EB%8B%88%ED%8B%B0%EB%9E%80-Android-Affinity-%ED%94%8C%EB%9E%98%EA%B7%B8%EB%9E%80)<br>
+  [webview](https://medium.com/@pks2974/fads-9eea83f47607)<br>
 
   [Top of page](#목차)
   </details>
