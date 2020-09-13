@@ -372,19 +372,19 @@
     </summary>
 
   * WebView 
-  - __정의__<br>
-  각 OS별 내장된 웹 브라우저를 뷰형태로 앱에서 표현할 수 있는 방법이다. WebView를 이용하여 웹페이지를 앱내에서 호출하여 하이브리드 형태의 앱을 개발하는데 유용하게 사용이 가능하다. <br>
-  앱 안에 HTML iframe을 넣었다고 생각하면 된다.
-    
-  [API공식문서](https://developer.android.com/reference/android/webkit/WebView)<br>
+    - __정의__<br>
+    각 OS별 내장된 웹 브라우저를 뷰형태로 앱에서 표현할 수 있는 방법이다. WebView를 이용하여 웹페이지를 앱내에서 호출하여 하이브리드 형태의 앱을 개발하는데 유용하게 사용이 가능하다. <br>
+    앱 안에 HTML iframe을 넣었다고 생각하면 된다.
+      
+    [API공식문서](https://developer.android.com/reference/android/webkit/WebView)<br>
 
-  - __종류__<br>
-  1. UIWebView<br>
-  2. WKWebView<br>
-  3. SFSafariView<br>
-  UIWebView와 WKWebView는 앱내에서 웹뷰를 보여주는 방식이며,<br>
-  SFSafariView는 앱내에서 사파리 브라우저를 띄우는 형태로 보여준다.<br>
-  
+    - __종류__<br>
+    1. UIWebView<br>
+    2. WKWebView<br>
+    3. SFSafariView<br>
+    UIWebView와 WKWebView는 앱내에서 웹뷰를 보여주는 방식이며,<br>
+    SFSafariView는 앱내에서 사파리 브라우저를 띄우는 형태로 보여준다.<br>
+
   * Drawer
     
   [Top of page](#목차)
