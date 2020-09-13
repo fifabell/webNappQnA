@@ -356,10 +356,10 @@
         Listener 
     </summary>
   
-  -__정의__<br>
+  - __정의__<br>
   이벤트 리스너라고 부르며, 이것은 특정 이벤트를 처리하는 인터페이스다. 이벤트 발생 여부를 기다리다가, 발생시 특정 이벤트를 처리하는 객체이다.<br>
 
-  -__종류__<br>
+  - __종류__<br>
   ![eventListener](./img/eventListener.png)
 
 
@@ -371,8 +371,21 @@
       WebView 
     </summary>
 
-    * WebView 
-    * Drawer
+  * WebView 
+  - __정의__<br>
+  각 OS별 내장된 웹 브라우저를 뷰형태로 앱에서 표현할 수 있는 방법이다. WebView를 이용하여 웹페이지를 앱내에서 호출하여 하이브리드 형태의 앱을 개발하는데 유용하게 사용이 가능하다. <br>
+  앱 안에 HTML iframe을 넣었다고 생각하면 된다.
+    
+  [API공식문서](https://developer.android.com/reference/android/webkit/WebView)<br>
+
+  - __종류__<br>
+  1. UIWebView<br>
+  2. WKWebView<br>
+  3. SFSafariView<br>
+  UIWebView와 WKWebView는 앱내에서 웹뷰를 보여주는 방식이며,<br>
+  SFSafariView는 앱내에서 사파리 브라우저를 띄우는 형태로 보여준다.<br>
+  
+  * Drawer
     
   [Top of page](#목차)
   </details>
@@ -429,6 +442,7 @@
   [LayoutInflater](https://www.crocus.co.kr/1584)
   [Listener](https://m.blog.naver.com/PostView.nhn?blogId=netrance&logNo=110125233278&proxyReferer=https:%2F%2Fwww.google.com%2F)
   [Task](https://arabiannight.tistory.com/entry/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9CAndroid-%ED%83%9C%EC%8A%A4%ED%81%AC%EB%9E%80-Task-Activity-Stack-%EC%96%B4%ED%94%BC%EB%8B%88%ED%8B%B0%EB%9E%80-Android-Affinity-%ED%94%8C%EB%9E%98%EA%B7%B8%EB%9E%80)
+  [webview](https://medium.com/@pks2974/fads-9eea83f47607)
 
   [Top of page](#목차)
   </details>
