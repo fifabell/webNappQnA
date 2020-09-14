@@ -3,7 +3,7 @@
 👻 <br>
 안드로이드와 웹을 공부하면서 궁금한 것들을 정리합니다.
 
-- recent updates : 2020-09-11
+- recent updates : 2020-09-14
 
 ---
 ## 목차
@@ -272,6 +272,16 @@
 
   <details>
     <summary> 
+        Drawer 
+    </summary>
+
+  사전적으로는 서랍의 의미를 가지고 있으며, 평소에는 화면의 한 쪽에 숨겨져 있다가 사용자가 액션을 취하면 화면에 나타날 수 있도록 하는 레이아웃이다.
+  
+  [Top of page](#목차)
+  </details>
+
+  <details>
+    <summary> 
       stream
     </summary>
 
@@ -385,8 +395,6 @@
     UIWebView와 WKWebView는 앱내에서 웹뷰를 보여주는 방식이며,<br>
     SFSafariView는 앱내에서 사파리 브라우저를 띄우는 형태로 보여준다.<br>
 
-  * Drawer
-    
   [Top of page](#목차)
   </details>
 
