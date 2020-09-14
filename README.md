@@ -272,10 +272,12 @@
 
   <details>
     <summary> 
-        Drawer 
+        DrawerLayout
     </summary>
 
-  사전적으로는 서랍의 의미를 가지고 있으며, 평소에는 화면의 한 쪽에 숨겨져 있다가 사용자가 액션을 취하면 화면에 나타날 수 있도록 하는 레이아웃이다.
+  사전적으로는 서랍의 의미를 가지고 있으며, 평소에는 화면의 한 쪽에 숨겨져 있다가 사용자가 액션을 취하면 화면에 나타날 수 있도록 하는 레이아웃이다.<br>
+  [NavigationView](https://developer.android.com/guide/navigation/navigation-ui?hl=ko#java)<br>
+
   
   [Top of page](#목차)
   </details>
