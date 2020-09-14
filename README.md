@@ -3,7 +3,7 @@
 👻 <br>
 안드로이드와 웹을 공부하면서 궁금한 것들을 정리합니다.
 
-- recent updates : 2020-09-14
+- recent updates : 2020-09-15
 
 ---
 ## 목차
@@ -396,6 +396,35 @@
     3. SFSafariView<br>
     UIWebView와 WKWebView는 앱내에서 웹뷰를 보여주는 방식이며,<br>
     SFSafariView는 앱내에서 사파리 브라우저를 띄우는 형태로 보여준다.<br>
+
+    - __기본속성__<br>
+    ```java
+    // 웹뷰 시작
+
+    /* 필수요소 */
+    mWebView = (WebView) findViewById(R.id.webView);
+
+    mWebView.setWebViewClient(new WebViewClient()); // 클릭시 새창 안뜨게
+    mWebSettings = mWebView.getSettings(); //세부 세팅 등록
+    mWebSettings.setJavaScriptEnabled(true); // 웹페이지 자바스클비트 허용 여부
+    mWebSettings.setSupportZoom(false); // 화면 줌 허용 여부
+    mWebSettings.setCacheMode(WebSettings.LOAD_NO_CACHE); // 브라우저 캐시 허용 여부
+    /* 필수요소 끝 */
+
+    mWebSettings.setSupportMultipleWindows(false); // 새창 띄우기 허용 여부
+    mWebSettings.setJavaScriptCanOpenWindowsAutomatically(false); // 자바스크립트 새창 띄우기(멀티뷰) 허용 여부
+    mWebSettings.setLoadWithOverviewMode(true); // 메타태그 허용 여부
+    mWebSettings.setUseWideViewPort(true); // 화면 사이즈 맞추기 허용 여부
+    mWebSettings.setBuiltInZoomControls(false); // 화면 확대 축소 허용 여부
+    web.setPluginState(WebSettings.PluginState.ON_DEMAND);    //플러그인을 사용할 수 있도록 설정
+    mWebSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN); // 컨텐츠 사이즈 맞추기
+    web.setBlockNetworkImage(false);             // 네크워크 이미지의 리소스를 로드하지않음
+    web.setLoadsImagesAutomatically(true);   // 웹뷰가 앱에 등록되어있는 이미지 리소스를 자동으로 로드하도록 설정
+    web.setUseWidViewPort(true);        // wide viewport를 사용하도록 설정
+    mWebSettings.setDomStorageEnabled(true); // 로컬저장소 허용 여부
+
+    mWebView.loadUrl("https://github.com/fifabell/webNappQnA"); // 웹뷰에 표시할 웹사이트 주소, 웹뷰 시작
+    ```
 
   [Top of page](#목차)
   </details>
