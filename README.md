@@ -3,7 +3,7 @@
 👻 <br>
 안드로이드와 웹을 공부하면서 궁금한 것들을 정리합니다.
 
-- recent updates : 2020-09-15
+- recent updates : 2020-09-16
 
 ---
 ## 목차
@@ -431,9 +431,74 @@
 
   <details>
     <summary> 
-        SharedPreference 
+        SharedPreferences
     </summary>
+
+  - __정의__<br>
+    안드로이드 앱이 종료되면 앱이 가지고 있던 데이터는 사라지기 때문에 재실행시 필요한 데이터를 SharedPreferences를 통해 저장한다.<br>
+
+    [API공식문서](https://developer.android.com/reference/android/content/SharedPreferences)<br>  
+
+    Sharedpreferences는 단순히 디바이스의 내부에 xml 파일 형태로 key, value쌍의 값들을 저장한다.<br>
+    그래서 파일 이름으로 SharedPreferences를 오픈한 후 key를 가지고 값을 찾거나 value를 저장하도록 되어있다.<br>
+
+  - __예시__ <br>  
+  <MainActivity.java>
   
+  ```java
+    public class MainActivity extends AppCompatActivity {
+ 
+        private TextView textView1;
+        private EditText editText;
+    
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
+    
+            editText = (EditText)findViewById(R.id.edit1);
+            textView1 = (TextView)findViewById(R.id.resultText1);
+    
+            //저장된 값을 불러오기 위해 같은 네임파일을 찾음.
+            SharedPreferences sf = getSharedPreferences("sFile",MODE_PRIVATE);
+
+            //text라는 key에 저장된 값이 있는지 확인. 아무값도 들어있지 않으면 ""를 반환.(2번째 인자는 default)
+            String text = sf.getString("text","");
+            textView1.setText(text);
+    
+        }
+    
+        @Override
+        protected void onStop() {
+            super.onStop();
+    
+            // Activity가 종료되기 전에 저장한다.
+            //SharedPreferences 변수 선언. 기본모드로 설정.
+            SharedPreferences sharedPreferences = getSharedPreferences("sFile",MODE_PRIVATE);
+    
+            // editor를 이용해서 값을 저장함.
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            String text = editText.getText().toString(); // 사용자가 입력한 저장할 데이터
+            editor.putString("text",text); // key, value를 이용하여 저장하는 형태
+
+            //다양한 형태의 변수값을 저장할 수 있다.
+            //editor.putString();
+            //editor.putBoolean();
+            //editor.putFloat();
+            //editor.putLong();
+            //editor.putInt();
+            //editor.putStringSet();
+    
+            //최종 커밋 (필수)
+            editor.commit();
+    
+    
+        }
+    }
+
+
+  ```
+
   [Top of page](#목차)
   </details>
     
@@ -454,6 +519,7 @@
     * FTPClient
     * fileprovider
     * viewPager
+        
     
   [Top of page](#목차)
   </details>
@@ -482,6 +548,7 @@
   [Listener](https://m.blog.naver.com/PostView.nhn?blogId=netrance&logNo=110125233278&proxyReferer=https:%2F%2Fwww.google.com%2F)<br>
   [Task](https://arabiannight.tistory.com/entry/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9CAndroid-%ED%83%9C%EC%8A%A4%ED%81%AC%EB%9E%80-Task-Activity-Stack-%EC%96%B4%ED%94%BC%EB%8B%88%ED%8B%B0%EB%9E%80-Android-Affinity-%ED%94%8C%EB%9E%98%EA%B7%B8%EB%9E%80)<br>
   [webview](https://medium.com/@pks2974/fads-9eea83f47607)<br>
+  [SharedPreferences](https://bottlecok.tistory.com/26)<br>
 
   [Top of page](#목차)
   </details>
