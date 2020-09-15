@@ -501,24 +501,41 @@
 
   [Top of page](#목차)
   </details>
+
+  <details>
+    <summary> 
+        problems 
+    </summary>
+  
+  > _안드로이드 개발하면서 발생했던 문제들을 야기한다._<br>
+
+  - 안드로이드 3.0 버전 한글 오류<br>
+
+    해당 문제는 2.5버전 이후 한글관련 문제가 있었던걸로 파익이 된다.<br>
+    구글링을 통해 한글처리 파일경로를 찾아 글씨체를 변경하였지만 바뀌지않는 문제가 있었다.<br>
+    
+    이후 해결책은 2.5버전 설치하여 업그레이드 하지않고 사용하고 있다. (문제없이 잘 작동된다.)<br>
+
+  [Top of page](#목차)
+  </details>
     
   <details>
     <summary> 
         etc 
     </summary>
 
-    * ArrayList<HashMap>
-    * static 
-    * Callback
-    * OncreateOptionsMenu
-    * singleton
-    * MVC
-    * JSONParse
-    * NavigationView
-    * Serializable
-    * FTPClient
-    * fileprovider
-    * viewPager
+  * ArrayList<HashMap>
+  * static 
+  * Callback
+  * OncreateOptionsMenu
+  * singleton
+  * MVC
+  * JSONParse
+  * NavigationView
+  * Serializable
+  * FTPClient
+  * fileprovider
+  * viewPager
         
     
   [Top of page](#목차)
