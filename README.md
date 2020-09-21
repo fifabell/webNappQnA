@@ -288,12 +288,14 @@
     <summary>
       푸시메시지
     </summary>
+  
   화면이 꺼져있을 때 카톡알람이나 화면 위에서 스크롤을 내릴 때 Notification화면을 생각하면 된다.<br>
   자세한건 블로그에 정리해 놓았으니 참고해보자.<br>
+  
   [블로그_확인하러가기](https://fifabell.github.io/android/fcm/Firebase-smp/)
 
   </details>
-  
+
   <details>
     <summary> 
       stream
