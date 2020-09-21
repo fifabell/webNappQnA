@@ -292,6 +292,8 @@
   자세한건 블로그에 정리해 놓았으니 참고해보자.<br>
   [블로그_확인하러가기](https://fifabell.github.io/android/fcm/Firebase-smp/)
 
+  </details>
+  
   <details>
     <summary> 
       stream
