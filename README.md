@@ -3,7 +3,7 @@
 👻 <br>
 안드로이드와 웹을 공부하면서 궁금한 것들을 정리합니다.
 
-- recent updates : 2020-09-21
+- recent updates : 2020-09-23
 
 ---
 ## 목차
@@ -372,7 +372,53 @@
     2번의 경우 실제로 프로세스가 날아가게 된다.-> to foreground<br>
 
   - __Flag__ <br>
-    * Task는 어플
+    
+    > Manifest에 <activity>요소의 launchMode 속성 4가지<br>
+    
+    * standard <br>
+      여러 개의 인스턴스가 생성가능함.<br>
+    
+    * singleTop <br>
+    호출한 activity와 현재 최상위 activity가 동일한 경우 최상위 activity가 재사용된다. (기존 최상위 activity 는 pop)<br>
+    
+    * singleTask <br>
+    루트 액티비티로만 존재하며 하나의 인스턴스만 생성가능.<br>
+    
+    * singleInstance <br>
+    singleTask와 동일하지만 태스크 내에 해당 액티비티 하나만 속할 수 있어 다른 액티비티를 실행하면 새로운 Task가 생성됨.<br>
+
+    > 소스 내 플래그<br>
+    
+    사용법 <br>
+
+    ```java
+    Intent intent = new Intent(MainActivity.this, SubActivity.class);
+    intent.addFlag(Intent."플래그명");
+    ```
+    * FLAG_ACTIVITY_NEW_TASK<br>
+    동일 task가 있으면 그곳에서 실행되고 아니면 새로운 task를 실행<br>
+
+    * FLAG_ACTIVITY_SINGLE_TOP<br>
+    B를 singletop설정 가정.<br>
+    A,B 상태에서 B호출 시 A,재사용된 B<br>
+    B,A 상태에서 B호출 시 B,A,B<br>
+
+    * FLAG_ACTIVITY_NO_HISTORY<br>
+    재활성화시(back키를 눌러 다시 활성화 될 때) pop!, 쉽게말해 뒤로가기하면 액티비티가 없어짐<br>
+    B를 NO_HISTORY 설정 가정.<br>
+    A,B,A 상태에서 BACK키 사용 시 A가 POP되고 B역시 NO_HISTORY에 의해 POP -> A만 남음.
+
+    * FLAG_ACTIVITY_REORDER_TO_FRONT <br>
+    호출 시 TASK내 이미 있으면, 같은 ACTIVITY는 POP시키고 해당 ACTIVITY가 PUSH됨.<br>
+    A를 REORDER_TO_FRONT 설정 가정<br>
+    A,B상태에서 A호출 시 같은 ACTIVITY인 A가 POP되고 -> B,A<br>
+
+    * FLAG_ACTIVITY_CLEAR_TOP <br>
+    해당 task에 있는 모든 activity를 pop시키고 해당 acitivity가 root activity로 task에 push됨.<br>
+    A를 CLEAR_TOP설정 가정<br>
+    A,B상태에서 A호출 시 모두 POP되고 -> A만 남음.<br>
+    단, 해당 플래그는 액티비티를 모두 onDestroy()시킨 후 새롭게 onCreate() 시키기 때문에<br>
+    A를 유지하려면 FLAG_ACTIVITY_SINGLE_TOP 플래그와 함께 사용하면 됨.<br>
 
   [Top of page](#목차)
   </details>
