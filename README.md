@@ -1,7 +1,9 @@
 # webNapp QnA
 
 👻 <br>
-안드로이드와 웹을 공부하면서 궁금한 것들을 정리합니다.
+안드로이드와 웹을 공부하면서 궁금한 것들을 정리합니다.<br>
+[android samples](https://github.com/fifabell/AndroidStudy/tree/master/sample)<br>
+[web samples](https://gist.github.com/fifabell)<br>
 
 - recent updates : 2020-09-23
 
