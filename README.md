@@ -612,6 +612,62 @@
         통신 
     </summary>
   
+  타 업체와 api를 연결하다보면, postman의 raw형식으로 데이터가 들어올 때가 있다.<br>
+  일반적인 형태는 <br>
+  
+  ```php
+  // receive
+  json_decode($_POST);
+  $DATA_ARRAY = json_decode($DATA,true);
+  $DATA_ARRAY["열NAME"];
+  // receive-end
+  ```
+
+  특히 c++나 c에서 프로그램을 이용해 값이 전달되는 경우 raw형식으로 종종 들어오곤 한다.<br>
+  
+  raw는 JSON이 아닌 날 것의 데이터형식으로,<br>
+  fetch() 후, .json()을 해줘야 객체 형태로 값이 들어온다.<br>
+
+  ```php
+  // request
+  {"DATA":
+    {"h1":"1","h2":"2"}
+  }
+  // request-end
+
+  // receive
+  $json = file_get_contents('php://input');
+  $data = json_decode($json);
+
+  //test
+  echo $data->{"DATA"}->{"h1"};
+  // receive-end
+  ```
+
+  ```php
+  // 기타 팁
+
+  // 한글변환 - 5.4이하버전 
+  function han ($s) { 
+    return reset(json_decode('{"s":"'.$s.'"}')); 
+  } 
+  function to_han ($str) {
+  return preg_replace('/(\\\u[a-f0-9]+)+/e','han("$0")',$str); 
+  } 
+
+  // EUC-KR to UTF-8
+  $DATA = json_decode($_POST);
+  $DATA = mb_convert_encoding($DATA,"EUC-KR","UTF-8");
+  
+  // \제거
+  $DATA = str_replace('\\', '', to_han(json_encode($DATA)));
+  // 
+  ```
+
+  
+  
+
+
   [Top of page](#목차)
   </details>
 
