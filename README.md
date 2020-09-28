@@ -613,7 +613,7 @@
     </summary>
   
   타 업체와 api를 연결하다보면, postman의 raw형식으로 데이터가 들어올 때가 있다.<br>
-  일반적인 형태는 <br>
+  일반적인 형태는 form방식 전송을 이용하는 경우,<br>
   
   ```php
   // receive
@@ -623,7 +623,7 @@
   // receive-end
   ```
 
-  특히 c++나 c에서 프로그램을 이용해 값이 전달되는 경우 raw형식으로 종종 들어오곤 한다.<br>
+  하지만 c++나 c에서 프로그램을 이용해 값이 전달되는 경우 raw형식으로 종종 들어오곤 한다.<br>
   
   raw는 JSON이 아닌 날 것의 데이터형식으로,<br>
   fetch() 후, .json()을 해줘야 객체 형태로 값이 들어온다.<br>
@@ -636,7 +636,7 @@
   // request-end
 
   // receive
-  $json = file_get_contents('php://input');
+  $json = file_get_contents('php://input'); // POST방식으로 보낸 http패킷의 body에 접근할 수 있다.
   $data = json_decode($json);
 
   //test
