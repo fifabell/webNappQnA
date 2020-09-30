@@ -5,7 +5,7 @@
 [android samples](https://github.com/fifabell/AndroidStudy/tree/master/sample)<br>
 [web samples](https://gist.github.com/fifabell)<br>
 
-- recent updates : 2020-09-23
+- recent updates : 2020-09-30
 
 ---
 ## 목차
@@ -586,7 +586,63 @@
         etc 
     </summary>
 
-  * ArrayList<HashMap>
+  * HashMap
+  hashmap을 이용해 키:배열 형태로 값을 저장할 수 있다.<br>
+  추가로 arraylist를 이용해 hashmap을 배열로 담아 사용할 수도 있다.<br>
+  
+  ```java
+  // 선언
+  HashMap<String,String> map1 = new HashMap<String,String>();//HashMap생성
+  HashMap<String,String> map2 = new HashMap<>();//new에서 타입 파라미터 생략가능
+  HashMap<String,String> map3 = new HashMap<>(map1);//map1의 모든 값을 가진 HashMap생성
+  HashMap<String,String> map4 = new HashMap<>(10);//초기 용량(capacity)지정
+  HashMap<String,String> map5 = new HashMap<>(10, 0.7f);//초기 capacity,load factor지정
+  HashMap<String,String> map6 = new HashMap<String,String>(){{//초기값 지정
+      put("a","b");
+  }};
+
+  // 값 추가
+  HashMap<Integer,String> map = new HashMap<>();//new에서 타입 파라미터 생략가능
+  map.put(1,"사과"); //값 추가
+  map.put(2,"바나나");
+  map.put(3,"포도");
+
+  // 값 삭제
+  HashMap<Integer,String> map = new HashMap<Integer,String>(){{//초기값 지정
+    put(1,"사과");
+    put(2,"바나나");
+    put(3,"포도");
+  }};
+  map.remove(1); //key값 1 제거
+  map.clear(); //모든 값 제거
+  
+  // 출력
+  HashMap<Integer,String> map = new HashMap<Integer,String>(){{//초기값 지정
+    put(1,"사과");
+    put(2,"바나나");
+    put(3,"포도");
+  }};
+      
+  System.out.println(map); //전체 출력 : {1=사과, 2=바나나, 3=포도}
+  System.out.println(map.get(1));//key값 1의 value얻기 : 사과
+      
+  //entrySet() 활용
+  for (Entry<Integer, String> entry : map.entrySet()) {
+      System.out.println("[Key]:" + entry.getKey() + " [Value]:" + entry.getValue());
+  }
+  //[Key]:1 [Value]:사과
+  //[Key]:2 [Value]:바나나
+  //[Key]:3 [Value]:포도
+
+  //KeySet() 활용
+  for(Integer i : map.keySet()){ //저장된 key값 확인
+      System.out.println("[Key]:" + i + " [Value]:" + map.get(i));
+  }
+  //[Key]:1 [Value]:사과
+  //[Key]:2 [Value]:바나나
+  //[Key]:3 [Value]:포도
+  ```
+
   * static 
   * Callback
   * OncreateOptionsMenu
