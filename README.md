@@ -153,6 +153,13 @@
     * Activity 종료 후 재시작 시 AsyncTask의 Reference는 무효하며, onPostExecute() 메소드는 새로운 Activit에 어떠한 영향도 끼치지 못한다. <br>
     * AsyncTask의 기본 처리 작업 개수는 1개다. <br>
 
+  - __직렬 vs 병렬 실행__ <br>
+    
+    ```java
+    .execute(); // 직렬실행
+    .executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR); // 병렬실행
+    ```
+
   [Top of page](#목차)
   </details>
  
