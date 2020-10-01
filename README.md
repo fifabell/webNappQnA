@@ -5,7 +5,7 @@
 [android samples](https://github.com/fifabell/AndroidStudy/tree/master/sample)<br>
 [web samples](https://gist.github.com/fifabell)<br>
 
-- recent updates : 2020-09-30
+- recent updates : 2020-10-01
 
 ---
 ## 목차
@@ -650,7 +650,16 @@
   //[Key]:3 [Value]:포도
   ```
 
-  * static 
+  * static
+  - 공간적 특성: 멤버는 클래스당 하나가 생성된다. <br>
+            : 멤버는 객체 내부가 아닌 별도의 공간에 생성된다. <br>
+            : 클래스 멤버 라고 부른다. <br>
+  - 시간적 특성: 클래스 로딩 시에 멤버가 생성된다. <br>
+            :객체가 생기기 전에 이미 생성된다. <br>
+            :객체가 생기기 전에도 사용이 가능하다. (즉, 객체를 생성하지 않고도 사용할 수 있다.) <br>
+            :객체가 사라져도 멤버는 사라지지 않는다. <br>
+            :멤버는 프로그램이 종료될 때 사라진다. <br>
+
   * Callback
   * OncreateOptionsMenu
   * singleton
