@@ -661,7 +661,118 @@
             :멤버는 프로그램이 종료될 때 사라진다. <br>
 
   * Callback
-  * OncreateOptionsMenu
+  - 일반적으로 callback함수는 매개변수에 함수를 넣어 반환하는 값이 함수의 return 값으로 들어오게 된다.<br>
+    android의 경우, Callback interface를 생성해 사용가능하다.<br>
+    아래는 예제.<br>
+  <Callback.java(interface)>
+  ```java
+  Interface Callback(){
+    void run(Object result);
+  }
+  ```
+
+  <Callback_인터페이스가_쓰이는_어딘가..>
+  ```java
+  // case 1
+  Callback callBack;
+  private String receiveSTR = 'null';
+
+  callBack.run(receiveSTR);
+
+  // case 2
+  public __AsyncTaskTest(HashMap<String, String> namevalue, String tmp_url, CallBack callBack, Context context) {
+        try {
+            this.context = context;
+            url = new URL(tmp_url);
+            nameValue = namevalue;
+            this.callBack = callBack;
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+    }
+  ```
+
+  * OptionsMenu
+  - 액션바 우측에 표시되는 메뉴바를 얘기한다.<br>
+  ![OptionsMenu](./img/optionsmenu.png)
+  
+  ### 1) 
+  /res/menu/ 경로에  Menu Resource를 위해 XML 파일을 생성,<br>
+  /res/ 경로 밑에 menu Directory가 존재하지 않으면 추가를 하여 해당 Directory 하위에 XML 파일을 생성.<br> 
+  ```java
+  <?xml version="1.0" encoding="utf-8"?>
+  <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+      <item
+          android:id="@+id/menu1"
+          android:title="Menu1" />
+      <item
+          android:id="@+id/menu2"
+          android:title="Menu2" />
+      <item
+          android:id="@+id/menu3"
+          android:title="Menu3" />
+  </menu>
+  ```
+
+  ### 2) 
+  onCreateOptionsMenu() 함수를 오버라이딩<br>
+  메뉴버튼을 눌렀을 때 보여줄 menu에 대해서 정의<br>
+
+  ```java
+  @Override
+  public boolean onCreateOptionsMenu(Menu menu)
+  {
+      MenuInflater inflater = getMenuInflater();
+
+      inflater.inflate(R.menu.main_menu, menu);
+
+      return true;
+  }
+  ```
+
+  ### 3) 
+  onPrepareOptionsMenu() 함수를 오버라이딩 <br>
+  추가 한 옵션 메뉴(Option Menu)를 클릭할 때마다 호출.<br>
+  메뉴를 클릭하였을 때 따로 처리해야 할 내용이 있다면 이 함수안에 구현.(안해줘도 무방)<br>
+
+  ### 4) 
+  onOptionsItemSelected() 함수를 오버라이딩 <br>
+  특정 Menu Item을 선택하였을 때 호출되는 함수.<br>
+  매개변수로 선택 된 MenuItem의 객체가 넘어옴.<br>
+  
+  ```java
+  @Override
+  public boolean onOptionsItemSelected (MenuItem item)
+  {
+      Toast toast = Toast.makeText(getApplicationContext(),"", Toast.LENGTH_LONG);
+
+      switch(item.getItemId())
+      {
+          case R.id.menu1:
+              toast.setText("Select Menu1");
+              break;
+          case R.id.menu2:
+              toast.setText("Select Menu2");
+              break;
+          case R.id.menu3:
+              toast.setText("Select Menu3");
+              break;
+      }
+
+      toast.show();
+
+      return super.onOptionsItemSelected(item);
+  }
+  ```
+
+  ### 5) 
+  onOptionsMenuClosed() 함수를 오버라이딩 <br>
+  옵션 메뉴(Option Menu)를 클릭하여 활성화 된 상태에서 이전 버튼을 클릭하거나 액티비티의 다른 영역을 클릭하여 옵션 메뉴를 닫을 때 호출되는 함수.<br>
+
+  ![OptionSelected](./img/optionselected.png)
+  
+
   * singleton
   * MVC
   * JSONParse
@@ -757,7 +868,8 @@
   [Task](https://arabiannight.tistory.com/entry/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9CAndroid-%ED%83%9C%EC%8A%A4%ED%81%AC%EB%9E%80-Task-Activity-Stack-%EC%96%B4%ED%94%BC%EB%8B%88%ED%8B%B0%EB%9E%80-Android-Affinity-%ED%94%8C%EB%9E%98%EA%B7%B8%EB%9E%80)<br>
   [webview](https://medium.com/@pks2974/fads-9eea83f47607)<br>
   [SharedPreferences](https://bottlecok.tistory.com/26)<br>
-
+  [OptionsMenu](https://lktprogrammer.tistory.com/161)<br>
+  
   [Top of page](#목차)
   </details>
 
