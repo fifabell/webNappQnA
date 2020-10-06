@@ -358,6 +358,149 @@
 
   <details>
     <summary> 
+        permission 
+    </summary>
+  - manifest에 추가하는 permission 정리<br>
+  - 참고 ) Android에서 permission 강회로 인한 마시멜로우(M) 이상 경우 권한 동의 체크를 반드시 얻어야 함.<br>
+  
+  ```java
+  //basic_1
+  <uses-permission android:name="android.permission.INTERNET" /> // 인터넷 사용
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> //네트워크 연결 확인
+  <uses-permission android:name="android.permission.READ_PHONE_STATE" /> // 휴대전화번호 receive 가능.
+
+  // 휴대전화번호 receive 예제
+  TelephonyManager mgr;
+  String phoneNumber;
+  if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_DENIED) {
+            try {
+                phoneNumber = mgr.getLine1Number(); // getLine1Number는 내장함수
+            } catch () {}
+  }
+
+  // basic_2
+  <uses-permission android:name="android.permission.CAMERA" /> // 카메라 사용 
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> // 외장 메모리 사용
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> // 외장 메모리 읽기
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> // 위치정보 확인
+
+  // external
+  <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" /> // 통신상태 변경
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/> // wifi 연결 확인
+  <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/> // wifi 체인지를 확인
+  <uses-permission android:name="android.permission.RECODER_AUDIO"/> // 녹음
+  <uses-permission android:name="android.permission.WAKE_LOCK" /> // 알람
+  <uses-permission android:name="android.permission.VIBRATE" /> // 진동
+  <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" /> // 알림_윈도우.. 최상단 위치에 view띄우기 가능.
+  
+  // 사용예제
+    // step_1 : permission
+    <application>
+        ...
+        <service
+            android:name=".MyService"
+            android:enabled="true"
+            android:permission="android.permission.SYSTEM_ALERT_WINDOW" >
+        </service>
+    </application>
+
+    // step_2 : view_in_service.xml (서비스를 통해 보여질 view xml을 작성)
+    <?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#0000ff">
+    
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello World!"
+            android:textColor="#ffffff"
+            android:id="@+id/textView" />
+    
+        <ImageButton
+            android:layout_width="368dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/bt"
+            android:text="click"
+            android:textColor="#ffffff"
+            android:src="@mipmap/ic_launcher"
+            android:layout_below="@+id/textView"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="12dp" />
+    </RelativeLayout>
+
+    // step_3 : MyService.java
+    public class MyService extends Service {
+  
+      WindowManager wm;
+      View mView;
+  
+      @Override
+      public IBinder onBind(Intent intent) { return null; }
+      
+      @Override
+      public void onCreate() {
+          super.onCreate();
+          LayoutInflater inflate = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+          wm = (WindowManager) getSystemService(WINDOW_SERVICE);
+  
+          WindowManager.LayoutParams params = new WindowManager.LayoutParams(
+                  /*ViewGroup.LayoutParams.MATCH_PARENT*/300,
+                  ViewGroup.LayoutParams.WRAP_CONTENT,
+                  WindowManager.LayoutParams.TYPE_SYSTEM_ALERT,
+                  WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
+                          |WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL
+                          |WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH,
+                  PixelFormat.TRANSLUCENT);
+  
+          params.gravity = Gravity.LEFT | Gravity.TOP;
+          mView = inflate.inflate(R.layout.view_in_service, null);
+          final TextView textView = (TextView) mView.findViewById(R.id.textView);
+          final ImageButton bt =  (ImageButton) mView.findViewById(R.id.bt);
+          bt.setOnClickListener(new View.OnClickListener() {
+              @Override
+              public void onClick(View v) {
+                  bt.setImageResource(R.mipmap.ic_launcher_round);
+                  textView.setText("on click!!");
+              }
+          });
+          wm.addView(mView, params);
+      }
+  
+      @Override
+      public void onDestroy() {
+        super.onDestroy();
+        if(wm != null) {
+            if(mView != null) {
+                wm.removeView(mView);
+                mView = null;
+            }
+            wm = null;
+        }
+      }
+    }
+
+  <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" /> // 강제종료
+  // 사용예제
+    Intent intent = new Intent(Intent.ACTION_MAIN);
+    intent.addCategory(Intent.CATEGORY_HOME);
+    context.startActivity(intent);
+    int pid = android.os.Process.myPid();
+    android.os.Process.killProcess(pid); // kill @
+
+  <uses-permission android:name="android.permission.CALL_PHONE" /> // 통화
+  <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" /> // noti없이 다운.. 안쓰는 걸 추천.
+
+  // 외에도 다양한 permission이 많음. 
+  // 참고 https://s262701-id.tistory.com/96
+  ```
+
+    [Top of page](#목차)
+  </details>
+
+  <details>
+    <summary> 
         Task 
     </summary>
   
