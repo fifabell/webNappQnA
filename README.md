@@ -931,12 +931,30 @@
   <activity_main.xml>
   ```java
   <com.google.android.material.navigation.NavigationView
+    android:id="@+id/navigation_view"
     app:headerLayout="@layout/drawer_header">
   </com.google.android.material.navigation.NavigationView>
   // 이후 drawer_header를 따로 정해주면 됨. 
   // drawer_header안에 id 사용 가능함.
   ```
 
+  <android_header.xml>
+  ```java
+  ...
+  <TextView
+    android:id="@+id/textName"
+    android:text="홍길동" />
+  ...
+  ```
+
+  <MainActivity.java>
+  ```java
+  View headerView;
+  TextView drName;
+
+  headerView = navigationView.getHeaderView(0);
+  drName = headerView.findViewById(R.id.textName);
+  ```
     
   [Top of page](#목차)
   </details>
