@@ -924,7 +924,19 @@
   * FTPClient
   * fileprovider
   * viewPager
-        
+  * xml 팁
+  - 1. headerlayout 설정 : layout의 header(윗부분)을 따로 layout을 만들 수 있음<br>
+  예시)<br>
+
+  <activity_main.xml>
+  ```java
+  <com.google.android.material.navigation.NavigationView
+    app:headerLayout="@layout/drawer_header">
+  </com.google.android.material.navigation.NavigationView>
+  // 이후 drawer_header를 따로 정해주면 됨. 
+  // drawer_header안에 id 사용 가능함.
+  ```
+
     
   [Top of page](#목차)
   </details>
