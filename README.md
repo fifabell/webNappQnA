@@ -924,8 +924,8 @@
   * FTPClient
   * fileprovider
   * viewPager
-  * xml 팁
-  - 1. headerlayout 설정 : layout의 header(윗부분)을 따로 layout을 만들 수 있음<br>
+  * 팁
+  - 1. xml_ headerlayout 설정 : layout의 header(윗부분)을 따로 layout을 만들 수 있음<br>
   예시)<br>
 
   <activity_main.xml>
@@ -955,6 +955,14 @@
   headerView = navigationView.getHeaderView(0);
   drName = headerView.findViewById(R.id.textName);
   ```
+
+  - 2. Manifest에서 가로모드로 전환<br>
+  ```java
+  <activity
+    android:name=".XXXActivity"
+    android:screenOrientation="landscape" /> // 이것.!
+  ```
+  
     
   [Top of page](#목차)
   </details>
