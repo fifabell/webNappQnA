@@ -5,7 +5,7 @@
 [android samples](https://github.com/fifabell/AndroidStudy/tree/master/sample)<br>
 [web samples](https://gist.github.com/fifabell)<br>
 
-- recent updates : 2020-10-01
+- recent updates : 2020-10-08
 
 ---
 ## 목차
@@ -715,6 +715,101 @@
   </details>
 
   <details>
+    <summary>
+       singleton
+    </summary>
+  
+  > 전역 변수를 사용하지 않고 객체를 하나만 생성 하도록 하며, 생성된 객체를 어디에서든지 참조할 수 있도록 하는 패턴 <br>
+
+  들어가기에 앞서 용어설명 )<br>
+  Thread safety란?<br>
+  멀티 스레드 프로그래밍에서 일반적으로 어떤 함수나 변수, 혹은 객체가 여러 스레드로부터 동시에 접근이 이루어져도 프로그램의 실행에 문제가 없음을 뜻한다.<br>
+  
+  싱글톤패턴의 종류는 크게 4가지가 있다.<br>
+  1. Eagle Initialization (이른 초기화 방식)<br>
+  싱글톤 객체를 instance라는 변수로 미리 생성해 놓고 사용하는 방식.<br>
+
+  이 패턴은 AndroidStudio에서 쉽게 싱글톤패턴을 생성할 수 있다.<br>
+  New -> class추가 -> singleton class 추가<br>
+  ![newSingleton](./img/newSingleton.png)
+
+  아래와 같은 코드가 생성됨...<Sample.java> <br>
+  ```java
+  public class Sample {
+    private static final Sample ourInstance = new Sample();
+
+    public static Sample getInstance() {
+        return ourInstance;
+    }
+
+    private Sample() {}
+  }
+  ```
+
+  * 장점 : static으로 생성된 변수에 싱글톤 객체를 선언했기 때문에 클래스 로더에 의해 클래스가 로딩 될 때 싱글톤 객체가 생성된다.<br> 또 클래스 로더에 의해 클래스가 최초 로딩 될 때 객체가 생성됨으로 Thread-safe.<br>
+  * 단점 : 싱글톤 객체를 사용하든 안하든 해당 클래스가 로딩 되는 시점에 항상 싱글톤 객체가 생성(new) 되고 메모리를 차지하고 있으니 비효율적인 방법임.<br>
+
+  2. Lazy Initialization (늦은 초기화 방식)
+
+  ```java
+  public class Sample {
+    private static Sample instance;
+    private Sample() {  }
+
+    public static Sample getInstance(){
+        if(instance == null){
+            instance = new Sample();
+        }
+        return instance;
+    }
+  }
+  ```
+
+  * 장점 : 싱글톤 객체가 필요할 때 인스턴스를 얻을 수 있다. (Eager initialization 방식에 단점을 보완)<br>
+  * 단점 : multi-thread 환경에서 여러 곳에서 동시에 getInstance()를 호출할 경우 인스턴스가 두 번 생성될 여지가 있다. (동기화 문제)==Not Thread-safe <br>
+
+  3. Initialization on demand holder idiom (holder에 의한 초기화 방식)
+
+  ```java
+  // 클래스안에 클래스(Holder)를 두어 JVM의 Class Loader 매커니즘과 Class가 로드되는 시점을 이용한 방식
+
+  public class Sample {
+        // Private constructor prevents instantiation from other classes
+        private Sample() { }
+
+        /**
+        * SampleHolder is loaded on the first execution of Singleton.getInstance() 
+        * or the first access to SampleHolder.INSTANCE, not before.
+        */
+        private static class SampleHolder { 
+                public static final Sample INSTANCE = new Sample();
+        }
+        public static Sample getInstance() {
+                return SampleHolder.INSTANCE;
+        }
+  }
+  ```
+
+  가장 많이 사용하는 방법으로, Lazy initialization 장점을 가져가면서 Thread간 동기화문제를 동시에 해결한 방법이다.(Thread-safe)<br>
+
+  4. Enum Initialization (Enum 초기화 방식)
+
+  ```java
+  // 모든 Enum type은 프로그램 내에서 한번 초기화 되는 점을 이용하는 방식.
+  public enum Sample {
+        INSTANCE;
+        public void execute (String arg) {
+                //... perform operation here ...
+        }
+  } 
+  ```
+
+  싱글톤의 특징(단 한번의 인스턴스 호출, Thread간 동기화) 을 가지며 비교적 간편하게 사용할 수 있는 방법<br>
+
+  [Top of page](#목차)
+  </details>
+
+  <details>
     <summary> 
         problems 
     </summary>
@@ -727,6 +822,8 @@
     구글링을 통해 한글처리 파일경로를 찾아 글씨체를 변경하였지만 바뀌지않는 문제가 있었다.<br>
     
     이후 해결책은 3.5버전 설치하여 업그레이드 하지않고 사용하고 있다. (문제없이 잘 작동된다.)<br>
+
+  [사용예제_보러가기](https://github.com/fifabell/AndroidStudy/tree/master/sample/singleton_sample)<br>
 
   [Top of page](#목차)
   </details>
@@ -915,8 +1012,6 @@
 
   ![OptionSelected](./img/optionselected.png)
   
-
-  * singleton
   * MVC
   * JSONParse
   * NavigationView
@@ -924,6 +1019,7 @@
   * FTPClient
   * fileprovider
   * viewPager
+
   * 팁
   - 1. xml_ headerlayout 설정 : layout의 header(윗부분)을 따로 layout을 만들 수 있음<br>
   예시)<br>
@@ -1050,6 +1146,8 @@
   [webview](https://medium.com/@pks2974/fads-9eea83f47607)<br>
   [SharedPreferences](https://bottlecok.tistory.com/26)<br>
   [OptionsMenu](https://lktprogrammer.tistory.com/161)<br>
+  [Singleton](http://bictoselfdev.blogspot.com/2018/05/singleton.html)<br>
+  
   
   [Top of page](#목차)
   </details>
