@@ -1124,9 +1124,43 @@
   // 
   ```
 
-  
-  
+  [Top of page](#목차)
+  </details>
 
+
+  <details>
+    <summary> 
+        javascript 기본문법
+    </summary>
+
+  ```javascript
+    <script src="scripts/main.js"></script> // header
+
+    // get the html
+    let myHeading = document.querySelector('h1');
+    myHeading.textContent = 'Hello world!';
+
+    // onclick -1
+    document.querySelector('html').onclick = function() {
+      alert('Ouch! Stop poking me!');
+    }
+
+    // onclick -2
+    guessSubmit.addEventListener('click', 함수명);
+
+    // RANDOM 1~100
+    var randomNumber = Math.floor(Math.random() * 100) + 1;
+
+    // TEXT 변경/추가 
+    guesses.textContent = 'TTTTTTT';
+
+    // STYLE EDIT
+    guesses.style.backgroundColor = 'yellow';
+    guesses.style.fontSize = '200%';
+    guesses.style.padding = '10px';
+    guesses.style.boxShadow = '3px 3px 6px black';
+
+  ```
 
   [Top of page](#목차)
   </details>
