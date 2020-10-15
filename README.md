@@ -5,7 +5,7 @@
 [android samples](https://github.com/fifabell/AndroidStudy/tree/master/sample)<br>
 [web samples](https://gist.github.com/fifabell)<br>
 
-- recent updates : 2020-10-08
+- recent updates : 2020-10-15
 
 ---
 ## 목차
@@ -1013,7 +1013,80 @@
   ![OptionSelected](./img/optionselected.png)
   
   * MVC
+  
+  ![mvc](./img/mvc.png)
+
+  - 디자인 패턴 중 하나로, 사용자 인터페이스로부터 비즈니스 로직을 분리하여 애플리케이션의 시각적 요소나 그 이면에서 실행되는 비즈니스 로직을 서로 영향 없이 쉽게 고칠 수 있는 애플리케이션을 만들 수 있다.<br>
+  
+  - 구성
+    * Controller : 모델에 명령을 보냄으로써 모델의 상태를 변경할 수 있다. (예: 워드 프로세서에서 문서를 편집하는 것) <br>
+    또, 컨트롤러가 관련된 뷰에 명령을 보냄으로써 모델의 표시 방법을 바꿀 수 있다. (문서를 스크롤하는 것) <br>
+
+    * Model : 모델의 상태에 변화가 있을 때 컨트롤러와 뷰에 이를 통보한다.<br>
+    이와 같은 통보를 통해서 뷰는 최신의 결과를 보여줄 수 있고, 컨트롤러는 모델의 변화에 따른 적용 가능한 명령을 추가·제거·수정할 수 있다.<br>
+    어떤 MVC 구현에서는 통보 대신 뷰나 컨트롤러가 직접 모델의 상태를 읽어 오기도 한다.<br>
+
+    * View : 사용자가 볼 결과물을 생성하기 위해 모델로부터 정보를 얻어 온다.<br>
+
   * JSONParse
+
+  - 기본적으로 json은 [], {}로 나뉨.<br>
+
+  - 예시 <br>
+
+  []대괄호는 JSONArray 를 이용하여 구별하고 {}중괄호는 JSONObject 를 이용하여 구별 <br>
+
+  ```java
+  
+  // 서버에서 받아오는 result == json
+  result = '[
+    {"CODE":"A","NAME":"JEONG","AGE":"11"},
+    {"CODE":"B","NAME":"CHOI","AGE":"12"}
+  ]'; // 예를들어 이런 코드가 있을 때, 
+
+
+  @Override
+  public void postExecute(String result) {
+    
+      try {
+        JSONArray jsonArr = new JSONArray(result); // JSONArray로 []를 벗긴다.
+
+        ArrayList<String, String, String> itemList = new ArrayList<>();
+        for(int i=0; i<jsonArr.length(); i++){
+            JSONObject jsonObj = jsonArr.getJSONObject(i); // JSONObject로 {}를 벗긴다.
+            String code = jsonObj.getString("CODE");
+            String name = jsonObj.getString("NAME");
+            String age = jsonObj.getInt("AGE");
+            itemList.add(code, name, age);
+        }
+
+        // 보통 위 과정을 아래와 같이 ArrayList를 특정 class에 담아 형태를 객체화 시킨다.
+
+        ArrayList<TestItem.java> itemList = new ArrayList<>();
+        for(int i=0; i<jsonArr.length(); i++){
+            itemList.add(new TestItem(jsonArr.getJSONObject(i)));
+        }
+
+        // in TestItem.java
+        public class TestItem{
+            private String code,name,age;
+            // + getter, setter 
+            public TestItem(JSONObject jsonObj) throws JSONException {
+              // 해당 class의 지역변수 참고.
+              code = jsonObj.getString("CODE");          // 코드
+              name = jsonObj.getString("NAME");          // 이름
+              age = jsonObj.getString("AGE");            // 나이
+            }
+        }
+        // end TestItem.java
+
+      } catch(JSONException e) {
+        e.printStackTrace();
+      }
+  }
+
+  ```
+
   * NavigationView
   * Serializable
   * FTPClient
@@ -1181,6 +1254,7 @@
   [SharedPreferences](https://bottlecok.tistory.com/26)<br>
   [OptionsMenu](https://lktprogrammer.tistory.com/161)<br>
   [Singleton](http://bictoselfdev.blogspot.com/2018/05/singleton.html)<br>
+  [MVC](https://ko.wikipedia.org/wiki/%EB%AA%A8%EB%8D%B8-%EB%B7%B0-%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC)<br>
   
   
   [Top of page](#목차)
