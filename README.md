@@ -5,7 +5,7 @@
 [android samples](https://github.com/fifabell/AndroidStudy/tree/master/sample)<br>
 [web samples](https://gist.github.com/fifabell)<br>
 
-- recent updates : 2020-10-15
+- recent updates : 2020-10-16
 
 ---
 ## 목차
@@ -1088,7 +1088,74 @@
   ```
 
   * NavigationView
-  * Serializable
+
+  * 직렬화
+  
+  직렬화는 메모리 내에 존재하는 정보를 보다 쉽게 전송 및 전달하기 위해 byte 코드 형태로 나열하는 것이다. <br>
+  여기서 메모리 내에 존재하는 정보는 즉 객체를 말한다.<br>
+
+  안드로이드에서 직렬화의 방법은 2가지가 있다.<br>
+  
+  Serializable vs Parcelable<br>
+
+  - Serializable 는 java의 기본 인터페이스이며, 가볍게 사용하기 쉬운 (재정의함수가 필요없는) 인터페이스다.<br>
+  - Parcelable 는 android에서 제공하는 인터페이스이며, 필수 재정의 함수가 존재한다.<br>
+
+  기본 Parcelable 인터페이스의 구성은 아래와 같다.<br>
+
+  ```java
+  // 기본 item구성
+  String name;
+  int age;
+  //  + getter setter
+
+  // 함수 재정의에 앞서, 생성자와 Creator 클래스를 만들어줘야한다. (alt + enter를 통해 자동 생성)
+  protected TestItem(Parcel in) {
+      name = in.readString();
+      age = in.readInt();
+  }
+
+  public static final Creator<TestItem> CREATOR = new Creator<TestItem>() {
+      @Override
+      public TestItem createFromParcel(Parcel in) {
+          return new TestItem(in);
+      }
+
+      @Override
+      public TestItem[] newArray(int size) {
+          return new TestItem[size];
+      }
+  };
+
+  // 두 함수는 필수 재정의 함수이다.
+  @Override
+  public int describeContents() {
+      return 0;
+  }
+
+  @Override
+  public void writeToParcel(Parcel dest, int flags) {
+
+  }
+
+  ```
+
+  Serializable은 가볍게 쓸 수 있는 대신, 기본적으로 Parcelable보다 쓰레기요소가 많아 시간이 더 소요된다.<br>
+  하지만, 이는 Serializable에서 함수를 추가적으로 구축하면 보다 더 짧은 시간으로 처리할 수 있다.<br>
+
+  ```java
+  private void writeObject(java.io.ObjectOutputStream out)
+  throws IOException;
+    
+  private void readObject(java.io.ObjectInputStream in)
+  throws IOException, ClassNotFoundException;
+
+  private void readObjectNoData()
+  throws ObjectStreamException;
+  ```
+
+  더 구체적인 사항은 최하단에 참고링크를 참조하자.<br>
+
   * FTPClient
   * fileprovider
   * viewPager
@@ -1255,8 +1322,8 @@
   [OptionsMenu](https://lktprogrammer.tistory.com/161)<br>
   [Singleton](http://bictoselfdev.blogspot.com/2018/05/singleton.html)<br>
   [MVC](https://ko.wikipedia.org/wiki/%EB%AA%A8%EB%8D%B8-%EB%B7%B0-%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC)<br>
-  
-  
+  [직렬화](https://woovictory.github.io/2019/01/03/Android-What-is-serialization/)<br>
+
   [Top of page](#목차)
   </details>
 
