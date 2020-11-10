@@ -112,14 +112,14 @@
       액티비티 컨텍스트는 액티비티에서 사용 가능하며 이 컨텍스트는 액티비티의 라이프사이클과 연결되어 있다. 액티비티의 범위 내에서 컨텍스트를 전달하거나, 라이프사이클이 현재의 컨텍스트에 붙은 컨텍스트가 필요할 때(need the context whose lifecycle is attached to the current context) 액티비티 컨텍스트를 사용한다.<br>
 
     - __Context 얻기__ <br>      
-    * View.getContext() :<br>
-    현재 뷰가 가지고 있는 context를 반환하는데, 일반적으로는 Activity에서 View를 띄우기 때문에 Activity의 Context가 된다.<br>
+      * View.getContext() :<br>
+      현재 뷰가 가지고 있는 context를 반환하는데, 일반적으로는 Activity에서 View를 띄우기 때문에 Activity의 Context가 된다.<br>
 
-    * Activity.getApplicationContext() :<br>
-    애플리케이션 전체의 컨텍스트를 반환합니다. 현재 액티비티뿐만 아니라 애플리케이션의 수명주기와 관련된 컨텍스트가 필요한 경우 Activity Context대신 이 값을 사용하면 됩니다.<br>
+      * Activity.getApplicationContext() :<br>
+      애플리케이션 전체의 컨텍스트를 반환합니다. 현재 액티비티뿐만 아니라 애플리케이션의 수명주기와 관련된 컨텍스트가 필요한 경우 Activity Context대신 이 값을 사용하면 됩니다.<br>
 
-    * ContextWrapper.getBaseContext() : <br>
-    다른 컨텍스트로부터 어떤 컨텍스트에 접근해야하는경우에 ContextWrapper를 씁니다. ContextWrapper 내부에서 참조 된 Context는 getBaseContext()를 통해 액세스됩니다.<br>
+      * ContextWrapper.getBaseContext() : <br>
+      다른 컨텍스트로부터 어떤 컨텍스트에 접근해야하는경우에 ContextWrapper를 씁니다. ContextWrapper 내부에서 참조 된 Context는 getBaseContext()를 통해 액세스됩니다.<br>
   
   [Top of page](#목차)
   </details>
@@ -1324,6 +1324,7 @@
         참고
     </summary>
   
+  [context](https://www.charlezz.com/?p=1080)<br>
   [background](https://brunch.co.kr/@mystoryg/84)<br>
   [UrlConnection](https://goddaehee.tistory.com/161)<br>
   [LayoutInflater](https://www.crocus.co.kr/1584)<br>
