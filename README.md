@@ -1098,6 +1098,12 @@
   ```
 
   * NavigationView
+  메뉴 탭이라고 생각하면 됨.
+  
+  [NavigationView_샘플](https://github.com/fifabell/AndroidStudy/blob/master/sample/NavigationView_sample/app/src/main/java/com/example/navigationview/MainActivity.java)<br>
+  
+  주석부분 설명참고.
+
 
   * 직렬화
   
