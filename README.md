@@ -5,7 +5,7 @@
 [android samples](https://github.com/fifabell/AndroidStudy/tree/master/sample)<br>
 [web samples](https://gist.github.com/fifabell)<br>
 
-- recent updates : 2020-11-11
+- recent updates : 2020-11-19
 
 ---
 ## 목차
@@ -1175,6 +1175,68 @@
   더 구체적인 사항은 최하단에 참고링크를 참조하자.<br>
 
   * FTPClient
+
+  - 아래 다운로드 링크에서 Apache FTP Library 다운로드<br>
+  - [다운로드링크](http://commons.apache.org/proper/commons-net/)<br>
+  
+  - app/lib에 jar파일 복사 <br>
+    - commons-net-3.6-sources.jar<br>
+    - commons-net-examples-3.6.jar<br>
+    - commons-net-3.6.jar<br>
+
+  - File > Project Structure 에서<br>
+  Dependencies에 jar파일들 추가<br>
+
+  - 아래 예시 코드 참고<br>
+
+  ```java
+ 
+  public void sendFTP(String fName)
+  {
+    final String parameter = fName;
+    Thread thread = new Thread(new Runnable() {
+        String fn = parameter;
+
+        @Override
+        public void run() {
+
+            FTPClient ftpClient = new FTPClient();
+            try {
+                //ftpClient.setControlEncoding("MS949");
+                ftpClient.connect("address", port);
+                ftpClient.login("id", "passwd");
+                ftpClient.setFileType(FTP.BINARY_FILE_TYPE); // 바이너리 파일
+            } catch (Exception ex) {
+                // error 
+            }
+
+            File uploadFile = new File(getApplicationContext().getFilesDir() + "/"+fn);
+
+            FileInputStream fis = null;
+
+            try{
+                ftpClient.changeWorkingDirectory("/data"); //서버 접속 폴더 
+                fis = new FileInputStream(uploadFile);
+                boolean isSuccess = ftpClient.storeFile(uploadFile.getName(), fis);
+
+                if(isSuccess){
+                    // success
+                }
+                else {
+                     // fail
+                }
+             }catch(Exception e){
+                // exception error 
+            }
+        }
+    });
+    thread.start();
+  }
+
+  ```
+
+
+
   * fileprovider
   * viewPager
 
